@@ -1,9 +1,9 @@
-import InputElement from './InputElement.jsx'
+import InputButton from './InputButton.jsx'
 
 export default function MiscMenu() {
 	return <div>
-		<InputElement type="submit" labelText="Clear all data" />
-		<InputElement type="submit" labelText="Fill with example data" />
-		<InputElement type="submit" labelText="Export for printing" />
+		<InputButton icon='./assets/icons/trash.svg' inputText="Clear all data" />
+		<InputButton icon='./assets/icons/database.svg' inputText="Fill with example data" />
+		<InputButton icon='./assets/icons/printer.svg' inputText="Export for printing" />
 	</div>
 }
