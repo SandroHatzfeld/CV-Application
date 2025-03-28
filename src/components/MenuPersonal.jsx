@@ -16,6 +16,10 @@ export default function MenuPersonal() {
           <InputElement labelText="Phone" type="tel" />
           <InputElement labelText="Birthday" type="date" />
         </div>
+        <InputButton
+          color="var(--textcolor-light)"
+          bgColor="var(--submit-btn)"
+        />
       </div>
       <div className="menu-input-container">
         <h1>Adress information</h1>

@@ -16,6 +16,6 @@ export default function InputFormEntry(props) {
 			</div>
 		)
 	} else {
-		return <InputButton onClick={toggleInputVisible} inputText='Add an entry' icon='./assets/icons/add.svg' />
+		return <InputButton  onClick={toggleInputVisible} inputText='Add an entry' icon='./assets/icons/add.svg' />
 	}
 }
