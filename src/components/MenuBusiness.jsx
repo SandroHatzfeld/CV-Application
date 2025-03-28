@@ -26,10 +26,13 @@ export default function MenuBusiness() {
 			<DndContextWrapper items={items} handleDragEnd={handleDragEnd} />
 			<InputFormEntry>
 				<InputElement labelText="Business" width="form-width-100" />
-				<InputElement labelText="Position" />
-				<InputElement labelText="Description" type='textarea'/>
+				<InputElement labelText="Position" width="form-width-100"/>
+				<InputElement labelText="Description" type='textarea' width="form-width-100"/>
+				<div className="input-row">
+
 				<InputElement labelText="Start" type="date" />
 				<InputElement labelText="End" type="date" />
+				</div>
 			</InputFormEntry>
 		</>
 	)

@@ -1,5 +1,5 @@
-export default function MenuTab({tabName = "tab", handleClick}) {
+export default function MenuTab({tabName = "tab", handleClick, isActive}) {
 	return <>
-		<button onClick={handleClick}>{tabName}</button>
+		<button className={`menu-tab ${isActive && 'active'}`} onClick={handleClick}>{tabName}</button>
 	</>
 }

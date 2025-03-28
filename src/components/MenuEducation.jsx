@@ -26,10 +26,14 @@ export default function MenuEducation() {
       <DndContextWrapper items={items} handleDragEnd={handleDragEnd} />
       <InputFormEntry>
         <InputElement labelText="School" width="form-width-100" />
-        <InputElement labelText="Degree" />
-        <InputElement labelText="Location" />
-        <InputElement labelText="Start" type="date" />
-        <InputElement labelText="End" type="date" />
+        <div className="input-row">
+          <InputElement labelText="Degree" />
+          <InputElement labelText="Location" />
+        </div>
+        <div className="input-row">
+          <InputElement labelText="Start" type="date" />
+          <InputElement labelText="End" type="date" />
+        </div>
       </InputFormEntry>
     </>
   )

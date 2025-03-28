@@ -12,7 +12,7 @@ export default function InputFormEntry(props) {
 		return (
 			<div className="menu-input-container">
 				{props.children}
-				<InputButton onClick={toggleInputVisible} />
+				<InputButton onClick={toggleInputVisible} color='var(--textcolor-light)' bgColor='var(--submit-btn)'/>
 			</div>
 		)
 	} else {

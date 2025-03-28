@@ -1,14 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --background-color: #ffffff;
+  --bg-level1: #94C9EF;
+  --bg-level2: #5185AB;
+  --inputs: #ffffff;
+  --submit-btn: #084D7E;
+  --textcolor-dark: #1c1c1c;
+  --textcolor-light: #ffffff;
+  
   line-height: 1.5;
   font-weight: 400;
+  font-size: 20px;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: var(--textcolor-light);
   background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+* {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+}
+h1 {
+  position: relative;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+h1::after {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 0.125rem;
+  background-color: var(--textcolor-light);
+}
+.misc-menu-wrapper {
+  padding: 0.5rem;
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  background-color: var(--bg-level1);
+  border-radius: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-element-container {
+  padding: 0.5rem;
+  background-color: var(--textcolor-light);
+  color: var(--textcolor-dark);
+  border: none;
+  border-radius: 0.25rem;
+  display: flex;
+  gap: 0.25rem;
+  justify-content: flex-start;
+  align-items: center;
+  width: fit-content;
+} 
+
+.menu {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  max-width: 500px;
+}
+
+.menu-tab-container {
+  padding: 0.5rem;
+  background-color: var(--bg-level1);
+  border-radius: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  justify-content: space-between;
+}
+.menu-tab {
+  width: 110px;
+  height: 60px;
+  background-color: var(--textcolor-light);
+  color: var(--textcolor-dark);
+  border: none;
+  border-radius: 0.25rem;
+  font-size: 0.75rem;
+}
+.menu-tab:focus, .menu-tab:focus-within, .menu-tab:hover, .menu-tab.active {
+  font-weight: bold;
+}
+.menu-content {
+  padding: 0.5rem;
+  margin: 0 0.5rem 0.5rem 0.5rem;
+  background-color: var(--bg-level2);
+  border-radius: 0 0 0.75rem 0.75rem;
+}
+
+.menu-input-container {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: var(--bg-level1);
+  box-sizing: content-box;
+  border-radius: 0.5rem;
+}
+.menu-input-container:last-child {
+  margin-bottom: 0;
+}
+.menu-input-container button {
+  margin-top: 0.5rem;
+  margin-left: auto;
+}
+.input-container {
+  margin-top: 0.5rem;
+}
+.input-row {
+  display: flex;
+  gap: 0.5rem;
+}
+label div{
+  padding: 0.125rem 0.75rem;
+  border-radius: 0.25rem;
+  background-color: var(--textcolor-light);
+  color: var(--textcolor-dark);
+  width: fit-content;
+}
+input, textarea {
+  margin-top: 0.25rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  border:none;
+  background-color: var(--inputs);
+  font-size: 1rem;
+  color: var(--textcolor-dark);
+  width: 100%;
+  box-sizing: border-box;
+}
+
+textarea {
+  height: 6rem;
+  padding: 0.75rem;
+}
+.form-width-100 {
+  width: 100%;
+}
+.form-width-66 {
+  width: 66%;
+}
+.form-width-50 {
+  width: 50%;
+}
+.form-width-33 {
+  width: 33%;
 }

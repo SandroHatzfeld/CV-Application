@@ -32,19 +32,20 @@ export default function Menu() {
     setCurrentTab(index)
   }
   return (
-    <div className="-menu">
-      <div className="-menu-tab-container">
+    <div className="menu">
+      <div className="menu-tab-container">
         {tabs.map((tab, index) => {
           return (
             <MenuTab
               key={index + tab.name}
               handleClick={() => changeTab(index)}
               tabName={tab.name}
+							isActive={index === currentTab}
             />
           )
         })}
       </div>
-      <div>
+      <div className="menu-content">
         <MenuContent
           description={tabs[currentTab].description}
           tabIndex={currentTab}

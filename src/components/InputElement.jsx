@@ -5,7 +5,7 @@ export default function InputElement({
 }) {
   if (type === "textarea") {
     return (
-      <div className={width}>
+      <div className={width + ' input-container'}>
         <label>
           <div>{labelText}</div>
           <textarea></textarea>
@@ -14,7 +14,7 @@ export default function InputElement({
     )
   }
   return (
-    <div className={width}>
+    <div className={width + ' input-container'}>
       <label>
         <div>{labelText}</div>
         <input type={type}></input>
