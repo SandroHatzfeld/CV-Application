@@ -3,7 +3,7 @@ export default function InputButton({
     icon = "./assets/icons/checkmark.svg",
     onClick,
     color = 'var(--textcolor-dark)',
-    bgColor = 'var(--textcolor-light)'
+    bgColor = 'var(--textcolor-light)',
 }) {
     return (
         <button onClick={onClick} className="input-element-container" style={{color: color, backgroundColor: bgColor}}>

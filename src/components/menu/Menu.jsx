@@ -25,12 +25,14 @@ const tabs = [
   },
 ]
 
-export default function Menu() {
+export default function Menu({collectFormData}) {
   const [currentTab, setCurrentTab] = useState(0)
 
   const changeTab = (index) => {
     setCurrentTab(index)
   }
+
+  
   return (
     <div className="menu">
       <div className="menu-tab-container">
@@ -49,6 +51,7 @@ export default function Menu() {
         <MenuContent
           description={tabs[currentTab].description}
           tabIndex={currentTab}
+          collectMenuData={collectFormData}
         />
       </div>
     </div>
