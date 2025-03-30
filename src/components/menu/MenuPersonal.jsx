@@ -1,7 +1,7 @@
 import InputButton from "./InputButton.jsx"
 import InputElement from "./InputElement.jsx"
 
-export default function MenuPersonal({ handleMenuData }) {
+export default function MenuPersonal({ handleData }) {
   const handleSubmit = (event) => {
     event.preventDefault()
     const generalInformation = {
@@ -17,9 +17,9 @@ export default function MenuPersonal({ handleMenuData }) {
       number: event.target.number.value,
       zip: event.target.zip.value,
       city: event.target.city.value,
-
     }
-    handleMenuData([generalInformation, adressInformation])
+
+    handleData({generalInformation: generalInformation, adressInformation: adressInformation})
   }
 
 

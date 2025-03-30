@@ -7,13 +7,17 @@ export default function InputFormEntry(props) {
 	const toggleInputVisible = () => {		
 		setInputVisible(inputVisible => !inputVisible)
 	}
-
+	
+	const toggleInputAndSubmit = (event) => {
+		props.handleSubmit(event)
+		setInputVisible(inputVisible => !inputVisible)
+	}
 	if(inputVisible) {
 		return (
-			<div className="menu-input-container">
+			<form className="menu-input-container" onSubmit={toggleInputAndSubmit}>
 				{props.children}
-				<InputButton onClick={toggleInputVisible} color='var(--textcolor-light)' bgColor='var(--submit-btn)'/>
-			</div>
+				<InputButton color='var(--textcolor-light)' bgColor='var(--submit-btn)'/>
+			</form>
 		)
 	} else {
 		return <InputButton  onClick={toggleInputVisible} inputText='Add an entry' icon='./assets/icons/add.svg' />
