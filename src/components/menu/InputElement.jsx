@@ -3,23 +3,34 @@ export default function InputElement({
   labelText = "Input",
   width = "form-width-50",
   name = "",
-  required = false
+  required = false,
+  value = "",
 }) {
+  
   if (type === "textarea") {
     return (
-      <div className={width + ' input-container'}>
+      <div className={width + " input-container"}>
         <label>
           <div>{labelText}</div>
-          <textarea name={name} required={required}></textarea>
+          <textarea
+            name={name}
+            required={required}
+            defaultValue={value}
+          ></textarea>
         </label>
       </div>
     )
   }
   return (
-    <div className={width + ' input-container'}>
+    <div className={width + " input-container"}>
       <label>
         <div>{labelText}</div>
-        <input type={type} name={name} required={required}></input>
+        <input
+          type={type}
+          name={name}
+          required={required}
+          defaultValue={value}
+        ></input>
       </label>
     </div>
   )

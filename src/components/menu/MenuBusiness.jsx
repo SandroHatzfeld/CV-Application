@@ -6,6 +6,8 @@ import InputFormEntry from "./InputFormEntry.jsx"
 
 export default function MenuBusiness() {
   const [items, setItems] = useState([])
+  const [inputVisible, setInputVisible] = useState(true)
+  const [filledValues, setFilledValues] = useState({})
 
   function handleDragEnd(event) {
     const { active, over } = event
@@ -27,8 +29,8 @@ export default function MenuBusiness() {
     const newItem = {
       id: crypto.randomUUID(),
       name: event.target.business.value,
-      degree: event.target.position.value,
-      location: event.target.description.value,
+      position: event.target.position.value,
+      description: event.target.description.value,
       start: event.target.start.value,
       end: event.target.end.value,
     }
@@ -36,41 +38,84 @@ export default function MenuBusiness() {
     setItems((items) => [...items, newItem])
   }
 
-	//
-	const handleEditItem = (id) => {
-		console.log(id);
-		
-	}
+  // initialize item values
 
-	// remove items based on their index and update the useState
-	const handleRemoveItem = (id) => {
-		setItems(items => items.filter(item => item.id !== id))
-	}
+  const handleEditItem = (id) => {
+    const itemIndex = items.findIndex((item) => item.id === id)
+
+    setFilledValues({
+      name: items[itemIndex].name,
+      position: items[itemIndex].position,
+      location: items[itemIndex].description,
+      start: items[itemIndex].start,
+      end: items[itemIndex].end,
+    })
+    setInputVisible(true)
+  }
+
+  // remove items based on their index and update the useState
+  const handleRemoveItem = (id) => {
+    setItems((items) => items.filter((item) => item.id !== id))
+  }
+
+  // allow button to toggle visibility
+  const toggleInputVisible = () => {
+    setInputVisible((inputVisible) => !inputVisible)
+  }
+
+  // submit and toggle input field after
+  const toggleInputAndSubmit = (event) => {
+    handleSubmit(event)
+    setInputVisible((inputVisible) => !inputVisible)
+  }
 
   return (
     <>
-      <DndContextWrapper handleDragEnd={handleDragEnd} items={items} removeItem={handleRemoveItem} editItem={handleEditItem}/>
-      <InputFormEntry handleSubmit={handleSubmit}>
+      <DndContextWrapper
+        handleDragEnd={handleDragEnd}
+        items={items}
+        removeItem={handleRemoveItem}
+        editItem={handleEditItem}
+      />
+      <InputFormEntry
+        handleSubmit={handleSubmit}
+        toggleInputVisible={toggleInputVisible}
+        toggleInputAndSubmit={toggleInputAndSubmit}
+        inputVisible={inputVisible}
+      >
         <InputElement
           labelText="Business"
           width="form-width-100"
           required={true}
           name="business"
+          value={filledValues.name}
         />
         <InputElement
           labelText="Position"
           width="form-width-100"
           name="position"
+          value={filledValues.position}
         />
         <InputElement
           labelText="Description"
           type="textarea"
           width="form-width-100"
           name="description"
+          value={filledValues.location}
         />
         <div className="input-row">
-          <InputElement labelText="Start" type="date" name="start" />
-          <InputElement labelText="End" type="date" name="end" />
+          <InputElement
+            labelText="Start"
+            type="date"
+            name="start"
+            value={filledValues.start}
+          />
+          <InputElement
+            labelText="End"
+            type="date"
+            name="end"
+            value={filledValues.end}
+          />
         </div>
       </InputFormEntry>
     </>
