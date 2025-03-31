@@ -31,6 +31,7 @@ export default function Menu({ collectFormData }) {
   const [itemsPersonal, setItemsPersonal] = useState({})
   const [itemsEducation, setItemsEducation] = useState([])
   const [itemsBusiness, setItemsBusiness] = useState([])
+  const [settings, setSettings] = useState([])
 
   const changeTab = (index) => {
     setCurrentTab(index)
@@ -61,6 +62,8 @@ export default function Menu({ collectFormData }) {
           setItemsEducation={setItemsEducation}
           itemsBusiness={itemsBusiness}
           setItemsBusiness={setItemsBusiness}
+          settings={settings}
+          setSettings={setSettings}
         />
       </div>
     </div>

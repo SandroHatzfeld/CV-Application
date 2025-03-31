@@ -5,8 +5,8 @@ export default function InputElement({
   name = "",
   required = false,
   value = "",
+  options = [],
 }) {
-  
   if (type === "textarea") {
     return (
       <div className={width + " input-container"}>
@@ -18,6 +18,37 @@ export default function InputElement({
             defaultValue={value}
           ></textarea>
         </label>
+      </div>
+    )
+  }
+  if (type === "select") {
+    return (
+      <div className={width + " input-container"}>
+        <label>
+          <div>{labelText}</div>
+          <select name={name}>
+            {options.map((option) => (
+              <option key={option}>{option}</option>
+            ))}
+          </select>
+        </label>
+      </div>
+    )
+  }
+  if (type === "layout") {
+    return (
+      <div className={width + " input-container"}>
+        <fieldset>
+          {options.map((option, index) => {
+            return (
+              <label key={option.name}>
+                <img src={option.image} />
+                <input type="radio" value={index} name={name}></input>
+                <div>{option.name}</div>
+              </label>
+            )
+          })}
+        </fieldset>
       </div>
     )
   }

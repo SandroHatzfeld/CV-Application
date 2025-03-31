@@ -12,6 +12,8 @@ export default function MenuContent({
   setItemsEducation,
   itemsBusiness,
   setItemsBusiness,
+	settings,
+	setSettings,
 }) {
   
 
@@ -41,7 +43,7 @@ export default function MenuContent({
       return (
         <>
           <p>{description}</p>
-          <MenuCustomize />
+          <MenuCustomize settings={settings} setSettings={setSettings} />
         </>
       )
     default:
