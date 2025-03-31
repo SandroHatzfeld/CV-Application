@@ -8,6 +8,7 @@ export default function MenuBusiness() {
   const [items, setItems] = useState([])
   const [inputVisible, setInputVisible] = useState(true)
   const [filledValues, setFilledValues] = useState({})
+  const [currentlyEditing, setCurrentlyEditing] = useState(false)
 
   function handleDragEnd(event) {
     const { active, over } = event
@@ -26,24 +27,46 @@ export default function MenuBusiness() {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-    const newItem = {
-      id: crypto.randomUUID(),
-      name: event.target.business.value,
-      position: event.target.position.value,
-      description: event.target.description.value,
-      start: event.target.start.value,
-      end: event.target.end.value,
+    if (currentlyEditing) {
+      const editedItem = {
+        id: filledValues.id,
+        name: event.target.business.value,
+        position: event.target.position.value,
+        description: event.target.description.value,
+        start: event.target.start.value,
+        end: event.target.end.value,
+      }
+
+      const changedItems = items.map((item) => {
+        if (item.id === editedItem.id) {
+          return editedItem
+        } else {
+          return item
+        }
+      })
+
+      setItems(changedItems)
+      setCurrentlyEditing(false)
+      setFilledValues({})
+    } else {
+      const newItem = {
+        id: crypto.randomUUID(),
+        name: event.target.business.value,
+        position: event.target.position.value,
+        description: event.target.description.value,
+        start: event.target.start.value,
+        end: event.target.end.value,
+      }
+
+      setItems((items) => [...items, newItem])
     }
-
-    setItems((items) => [...items, newItem])
   }
-
-  // initialize item values
 
   const handleEditItem = (id) => {
     const itemIndex = items.findIndex((item) => item.id === id)
 
     setFilledValues({
+			id: items[itemIndex].id,
       name: items[itemIndex].name,
       position: items[itemIndex].position,
       location: items[itemIndex].description,
@@ -51,6 +74,7 @@ export default function MenuBusiness() {
       end: items[itemIndex].end,
     })
     setInputVisible(true)
+    setCurrentlyEditing(true)
   }
 
   // remove items based on their index and update the useState

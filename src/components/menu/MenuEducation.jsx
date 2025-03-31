@@ -22,6 +22,7 @@ export default function MenuEducation() {
       })
     }
   }
+
   // collect the values and push them to the array
   const handleSubmit = (event) => {
     event.preventDefault()
