@@ -37,14 +37,14 @@ export default function MenuBusiness() {
   }
 
 	//
-	const handleEditItem = (event) => {
-
+	const handleEditItem = (id) => {
+		console.log(id);
+		
 	}
 
-	//
-	const handleRemoveItem = (event) => {
-		console.log(event);
-		
+	// remove items based on their index and update the useState
+	const handleRemoveItem = (id) => {
+		setItems(items => items.filter(item => item.id !== id))
 	}
 
   return (

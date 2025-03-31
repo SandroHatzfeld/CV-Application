@@ -235,6 +235,8 @@ button {
   background-repeat: no-repeat;
   background-size: cover;
   justify-self: flex-end;
+  border: none;
+  background-color: transparent;
 }
 
 .move-item {

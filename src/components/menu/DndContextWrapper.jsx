@@ -14,10 +14,11 @@ import {
 } from "@dnd-kit/sortable"
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers"
 import { SortableItem } from "./SortableItem.jsx"
+import MyPointerSensor from './MyPointerSensor.jsx'
 
 export default function DndContextWrapper({items, handleDragEnd, removeItem, editItem}) {
   const sensors = useSensors(
-    useSensor(PointerSensor),
+    useSensor(MyPointerSensor),
     useSensor(KeyboardSensor, {
       coordinateGetter: sortableKeyboardCoordinates,
     })
@@ -32,7 +33,7 @@ export default function DndContextWrapper({items, handleDragEnd, removeItem, edi
     >
       <SortableContext items={items} strategy={verticalListSortingStrategy}>
         {items.map((item) => (
-          <SortableItem key={item.id} id={item.id} data={item} removeItem={removeItem} editItem={editItem}/>
+          <SortableItem key={item.id} id={item.id} data={item} removeItem={() => removeItem(item.id)} editItem={() => editItem(item.id)}/>
         ))}
       </SortableContext>
     </DndContext>
