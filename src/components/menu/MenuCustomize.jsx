@@ -11,7 +11,12 @@ export default function MenuCustomize({ settings, setSettings }) {
     { name: "Boxes", image: "./assets/layouts/boxes.svg" },
   ]
 
-  const handleChange = () => {
+  const handleChange = (event) => {
+    setSettings({
+      ...settings,
+      [event.target.name]: event.target.value
+    })
+    console.log(settings);
     
   }
   return (
@@ -21,19 +26,19 @@ export default function MenuCustomize({ settings, setSettings }) {
         <InputColor
           labelText="Background Color"
           name="backgroundColor"
-          value='#efafb2'
+          value={settings.backgroundColor}
           handleChange={handleChange}
         />
         <InputColor
           labelText="Header Background Color"
           name="headerColor"
-          value='#efafb2'
+          value={settings.headerColor}
           handleChange={handleChange}
         />
         <InputColor
           labelText="Font Color"
           name="fontColor"
-          value='#efafb2'
+          value={settings.fontColor}
           handleChange={handleChange}
         />
       </div>

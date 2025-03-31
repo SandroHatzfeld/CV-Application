@@ -4,20 +4,43 @@ import CVRenderer from "./components/rendering/CVRenderer.jsx"
 import Menu from "./components/menu/Menu.jsx"
 
 export default function App() {
-  const [formData, setFormData] = useState(null)
-
-  const collectFormData = (data) => {
-		console.log("test");
-		console.log(data);
-		
-		setFormData(data)
-	}
+  const [itemsPersonal, setItemsPersonal] = useState({})
+  const [itemsEducation, setItemsEducation] = useState([])
+  const [itemsBusiness, setItemsBusiness] = useState([])
+  const [settings, setSettings] = useState({
+    backgroundColor: "#efefef",
+    headerColor: "#efab41",
+    fontColor: "#3b3b3b",
+    headingFont: "Arial",
+    paragraphFont: "Arial",
+    footerFont: "Arial",
+    layoutOption: "0",
+  })
 
   return (
     <>
-      <MiscMenu collectFormData={collectFormData} />
-      <Menu collectFormData={collectFormData} />
-      <CVRenderer CVData={formData} />
+      <MiscMenu
+        setItemsPersonal={setItemsPersonal}
+        setItemsEducation={setItemsEducation}
+        setItemsBusiness={setItemsBusiness}
+        setSettings={setSettings}
+      />
+      <Menu
+        itemsPersonal={itemsPersonal}
+        setItemsPersonal={setItemsPersonal}
+        itemsEducation={itemsEducation}
+        setItemsEducation={setItemsEducation}
+        itemsBusiness={itemsBusiness}
+        setItemsBusiness={setItemsBusiness}
+        settings={settings}
+        setSettings={setSettings}
+      />
+      <CVRenderer
+        itemsPersonal={itemsPersonal}
+        itemsEducation={itemsEducation}
+        itemsBusiness={itemsBusiness}
+        settings={settings}
+      />
     </>
   )
 }
