@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import DndContextWrapper from "./DndContextWrapper.jsx"
-import InputElement from "./InputElement.jsx"
-import InputFormEntry from "./InputFormEntry.jsx"
+import InputElement from "./inputs/InputElement.jsx"
+import InputFormEntry from "./inputs/InputFormEntry.jsx"
 import { arrayMove } from "@dnd-kit/sortable"
 
 export default function MenuEducation({items, setItems}) {

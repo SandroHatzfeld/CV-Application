@@ -1,5 +1,5 @@
-import InputButton from "./InputButton.jsx"
-import InputElement from "./InputElement.jsx"
+import InputButton from "./inputs/InputButton.jsx"
+import InputElement from "./inputs/InputElement.jsx"
 
 export default function MenuPersonal({ items, setItems }) {
   const handleSubmit = (event) => {

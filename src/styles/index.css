@@ -250,7 +250,7 @@ button {
   background-image: url("./assets/icons/close.svg");
 }
 
-.input-container:has(input[type="color"]) label {
+.input-color label {
   display: grid;
   grid-template-columns: 1fr 4rem;
 }

@@ -1,4 +1,6 @@
-import InputElement from "./InputElement.jsx"
+import InputColor from './inputs/InputColor.jsx'
+import InputDropdown from './inputs/InputDropdown.jsx'
+import InputLayout from './inputs/InputLayout.jsx'
 
 export default function MenuCustomize({ settings, setSettings }) {
   const fontOptions = ["Arial", "Comic Sans", "Times New Roman"]
@@ -9,63 +11,59 @@ export default function MenuCustomize({ settings, setSettings }) {
     { name: "Boxes", image: "./assets/layouts/boxes.svg" },
   ]
 
+  const handleChange = () => {
+    
+  }
   return (
     <>
       <div className="menu-input-container">
         <h1>Colors</h1>
-        <InputElement
-          type="color"
+        <InputColor
           labelText="Background Color"
           name="backgroundColor"
-          width="form-width-100"
           value='#efafb2'
+          handleChange={handleChange}
         />
-        <InputElement
-          type="color"
+        <InputColor
           labelText="Header Background Color"
           name="headerColor"
-          width="form-width-100"
           value='#efafb2'
+          handleChange={handleChange}
         />
-        <InputElement
-          type="color"
+        <InputColor
           labelText="Font Color"
           name="fontColor"
-          width="form-width-100"
           value='#efafb2'
+          handleChange={handleChange}
         />
       </div>
       <div className="menu-input-container">
         <h1>Fonts</h1>
-        <InputElement
-          type="select"
+        <InputDropdown
           labelText="Headings"
           name="headingFont"
           options={fontOptions}
-          width="form-width-100"
+          handleChange={handleChange}
         />
-        <InputElement
-          type="select"
+        <InputDropdown
           labelText="Paragraph"
           name="paragraphFont"
           options={fontOptions}
-          width="form-width-100"
+          handleChange={handleChange}
         />
-        <InputElement
-          type="select"
+        <InputDropdown
           labelText="Footer"
           name="footerFont"
           options={fontOptions}
-          width="form-width-100"
+          handleChange={handleChange}
         />
       </div>
       <div className="menu-input-container">
         <h1>Layouts</h1>
-        <InputElement
-          type="layout"
+        <InputLayout
           name="layoutOption"
           options={layoutOptions}
-          width="form-width-100"
+          handleChange={handleChange}
         />
       </div>
     </>

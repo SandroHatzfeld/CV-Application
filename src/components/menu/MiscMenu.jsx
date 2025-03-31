@@ -1,4 +1,4 @@
-import InputButton from './InputButton.jsx'
+import InputButton from './inputs/InputButton.jsx'
 
 export default function MiscMenu() {
 	return <div className='misc-menu-wrapper'>

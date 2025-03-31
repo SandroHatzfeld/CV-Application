@@ -1,8 +1,8 @@
 import React, { useState } from "react"
 import DndContextWrapper from "./DndContextWrapper.jsx"
 import { arrayMove } from "@dnd-kit/sortable"
-import InputElement from "./InputElement.jsx"
-import InputFormEntry from "./InputFormEntry.jsx"
+import InputElement from "./inputs/InputElement.jsx"
+import InputFormEntry from "./inputs/InputFormEntry.jsx"
 
 export default function MenuBusiness({items, setItems}) {
   const [inputVisible, setInputVisible] = useState(true)
