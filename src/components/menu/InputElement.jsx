@@ -23,12 +23,12 @@ export default function InputElement({
   }
   if (type === "select") {
     return (
-      <div className={width + " input-container"}>
+      <div className={width + " input-container input-select"}>
         <label>
           <div>{labelText}</div>
           <select name={name}>
             {options.map((option) => (
-              <option key={option}>{option}</option>
+              <option style={{fontFamily: option}} key={option}>{option}</option>
             ))}
           </select>
         </label>
@@ -37,13 +37,13 @@ export default function InputElement({
   }
   if (type === "layout") {
     return (
-      <div className={width + " input-container"}>
+      <div className={width + " input-container input-layout"}>
         <fieldset>
           {options.map((option, index) => {
             return (
               <label key={option.name}>
+                <input type="radio" value={index} name={name} defaultChecked={index === 0} tabIndex='0' ></input>
                 <img src={option.image} />
-                <input type="radio" value={index} name={name}></input>
                 <div>{option.name}</div>
               </label>
             )

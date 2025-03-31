@@ -17,13 +17,23 @@ export default function MenuCustomize({ settings, setSettings }) {
           type="color"
           labelText="Background Color"
           name="backgroundColor"
+          width="form-width-100"
+          value='#efafb2'
         />
         <InputElement
           type="color"
           labelText="Header Background Color"
           name="headerColor"
+          width="form-width-100"
+          value='#efafb2'
         />
-        <InputElement type="color" labelText="Font Color" name="fontColor" />
+        <InputElement
+          type="color"
+          labelText="Font Color"
+          name="fontColor"
+          width="form-width-100"
+          value='#efafb2'
+        />
       </div>
       <div className="menu-input-container">
         <h1>Fonts</h1>
@@ -32,18 +42,21 @@ export default function MenuCustomize({ settings, setSettings }) {
           labelText="Headings"
           name="headingFont"
           options={fontOptions}
+          width="form-width-100"
         />
         <InputElement
           type="select"
           labelText="Paragraph"
           name="paragraphFont"
           options={fontOptions}
+          width="form-width-100"
         />
         <InputElement
           type="select"
           labelText="Footer"
           name="footerFont"
           options={fontOptions}
+          width="form-width-100"
         />
       </div>
       <div className="menu-input-container">
@@ -52,6 +65,7 @@ export default function MenuCustomize({ settings, setSettings }) {
           type="layout"
           name="layoutOption"
           options={layoutOptions}
+          width="form-width-100"
         />
       </div>
     </>
