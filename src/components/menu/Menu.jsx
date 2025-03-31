@@ -25,14 +25,17 @@ const tabs = [
   },
 ]
 
-export default function Menu({collectFormData}) {
+export default function Menu({ collectFormData }) {
   const [currentTab, setCurrentTab] = useState(0)
+
+  const [itemsPersonal, setItemsPersonal] = useState({})
+  const [itemsEducation, setItemsEducation] = useState([])
+  const [itemsBusiness, setItemsBusiness] = useState([])
 
   const changeTab = (index) => {
     setCurrentTab(index)
   }
 
-  
   return (
     <div className="menu">
       <div className="menu-tab-container">
@@ -42,7 +45,7 @@ export default function Menu({collectFormData}) {
               key={index + tab.name}
               handleClick={() => changeTab(index)}
               tabName={tab.name}
-							isActive={index === currentTab}
+              isActive={index === currentTab}
             />
           )
         })}
@@ -52,6 +55,12 @@ export default function Menu({collectFormData}) {
           description={tabs[currentTab].description}
           tabIndex={currentTab}
           collectMenuData={collectFormData}
+          itemsPersonal={itemsPersonal}
+          setItemsPersonal={setItemsPersonal}
+          itemsEducation={itemsEducation}
+          setItemsEducation={setItemsEducation}
+          itemsBusiness={itemsBusiness}
+          setItemsBusiness={setItemsBusiness}
         />
       </div>
     </div>

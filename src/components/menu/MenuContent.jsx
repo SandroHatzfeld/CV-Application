@@ -1,49 +1,52 @@
-import MenuPersonal from './MenuPersonal.jsx'
-import MenuCustomize from './MenuCustomize.jsx'
-import MenuEducation from './MenuEducation.jsx'
-import MenuBusiness from './MenuBusiness.jsx'
+import MenuPersonal from "./MenuPersonal.jsx"
+import MenuCustomize from "./MenuCustomize.jsx"
+import MenuEducation from "./MenuEducation.jsx"
+import MenuBusiness from "./MenuBusiness.jsx"
 
-export default function MenuContent({description, tabIndex, collectMenuData}) {
-	const handleData = (data) => {
-		const combinedFormData = {
-			generalInformation: data.generalInformation,
-			adressInformation: data.adressInformation,
-			educationInformation: data.educationInformation,
-			businessInformation: data.businessInformation,
-			customization: data.customization,
-		}
-		
-		collectMenuData(combinedFormData)
-	}
+export default function MenuContent({
+  description,
+  tabIndex,
+  itemsPersonal,
+  setItemsPersonal,
+  itemsEducation,
+  setItemsEducation,
+  itemsBusiness,
+  setItemsBusiness,
+}) {
+  
 
-	switch (tabIndex) {
-		case 0:
-			return <>
-				<p>{description}</p>
-				<MenuPersonal handleData={handleData} />
-			</>
-		case 1:
-			return <>
-				<p>{description}</p>
-				<MenuEducation handleData={handleData} />
-			</>
-		case 2:
-			return <>
-				<p>{description}</p>
-				<MenuBusiness handleData={handleData} />
-			</>
-		case 3:
-			return <>
-				<p>{description}</p>
-				<MenuCustomize handleData={handleData} />
-			</>
-		default:
-			break
-	}
+  switch (tabIndex) {
+    case 0:
+      return (
+        <>
+          <p>{description}</p>
+          <MenuPersonal items={itemsPersonal} setItems={setItemsPersonal} />
+        </>
+      )
+    case 1:
+      return (
+        <>
+          <p>{description}</p>
+          <MenuEducation items={itemsEducation} setItems={setItemsEducation} />
+        </>
+      )
+    case 2:
+      return (
+        <>
+          <p>{description}</p>
+          <MenuBusiness items={itemsBusiness} setItems={setItemsBusiness} />
+        </>
+      )
+    case 3:
+      return (
+        <>
+          <p>{description}</p>
+          <MenuCustomize />
+        </>
+      )
+    default:
+      break
+  }
 
-
-
-	return <div>
-		
-	</div>
+  return <div></div>
 }
