@@ -17,8 +17,11 @@ export function SortableItem(props) {
   };
   
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <h1>{`${props.index}. ${props.data.name}`}</h1>
+    <div className='sortable-item' ref={setNodeRef} style={style} {...attributes} {...listeners}>
+      <div className='move-item'></div>
+      <h1>{props.data.name}</h1>
+      <div className='edit-item' onClick={props.editItem}></div>
+      <div className='remove-item' onClick={props.removeItem}></div>
     </div>
   );
 }

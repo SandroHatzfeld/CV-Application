@@ -5,35 +5,74 @@ import InputElement from "./InputElement.jsx"
 import InputFormEntry from "./InputFormEntry.jsx"
 
 export default function MenuBusiness() {
-	const [items, setItems] = useState([1, 2, 3])
+  const [items, setItems] = useState([])
 
-	// handle function for sorting items. Usually inside the dndcontext, but moved out to be able the change the useState
-	function handleDragEnd(event) {
-		const { active, over } = event
+  function handleDragEnd(event) {
+    const { active, over } = event
 
-		if (active.id !== over.id) {
-			setItems((items) => {
-				const oldIndex = items.indexOf(active.id)
-				const newIndex = items.indexOf(over.id)
+    if (active.id !== over.id) {
+      setItems((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id)
+        const newIndex = items.findIndex((item) => item.id === over.id)
 
-				return arrayMove(items, oldIndex, newIndex)
-			})
-		}
+        return arrayMove(items, oldIndex, newIndex)
+      })
+    }
+  }
+
+  // collect the values and push them to the array
+  const handleSubmit = (event) => {
+    event.preventDefault()
+
+    const newItem = {
+      id: crypto.randomUUID(),
+      name: event.target.business.value,
+      degree: event.target.position.value,
+      location: event.target.description.value,
+      start: event.target.start.value,
+      end: event.target.end.value,
+    }
+
+    setItems((items) => [...items, newItem])
+  }
+
+	//
+	const handleEditItem = (event) => {
+
 	}
 
-	return (
-		<>
-			<DndContextWrapper items={items} handleDragEnd={handleDragEnd} />
-			<InputFormEntry>
-				<InputElement labelText="Business" width="form-width-100" />
-				<InputElement labelText="Position" width="form-width-100"/>
-				<InputElement labelText="Description" type='textarea' width="form-width-100"/>
-				<div className="input-row">
+	//
+	const handleRemoveItem = (event) => {
+		console.log(event);
+		
+	}
 
-				<InputElement labelText="Start" type="date" />
-				<InputElement labelText="End" type="date" />
-				</div>
-			</InputFormEntry>
-		</>
-	)
+  return (
+    <>
+      <DndContextWrapper handleDragEnd={handleDragEnd} items={items} removeItem={handleRemoveItem} editItem={handleEditItem}/>
+      <InputFormEntry handleSubmit={handleSubmit}>
+        <InputElement
+          labelText="Business"
+          width="form-width-100"
+          required={true}
+          name="business"
+        />
+        <InputElement
+          labelText="Position"
+          width="form-width-100"
+          name="position"
+        />
+        <InputElement
+          labelText="Description"
+          type="textarea"
+          width="form-width-100"
+          name="description"
+        />
+        <div className="input-row">
+          <InputElement labelText="Start" type="date" name="start" />
+          <InputElement labelText="End" type="date" name="end" />
+        </div>
+      </InputFormEntry>
+    </>
+  )
 }

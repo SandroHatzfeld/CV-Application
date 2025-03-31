@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React from "react"
 import {
   DndContext,
   closestCenter,
@@ -8,7 +8,6 @@ import {
   useSensors,
 } from "@dnd-kit/core"
 import {
-  arrayMove,
   SortableContext,
   sortableKeyboardCoordinates,
   verticalListSortingStrategy,
@@ -16,26 +15,7 @@ import {
 import { restrictToVerticalAxis } from "@dnd-kit/modifiers"
 import { SortableItem } from "./SortableItem.jsx"
 
-export default function DndContextWrapper() {
-  const [items, setItems] = useState([
-    {
-      id: crypto.randomUUID(),
-      name: "TEsteeee",
-      degree: "aodfvowowow",
-      location: "etstlafe",
-      start: "81.92.19",
-      end: "f99wq.90aw",
-    },
-    {
-      id: crypto.randomUUID(),
-      name: "sfsfsdf",
-      degree: "aodffeefefavowowow",
-      location: "etstlafe",
-      start: "81.92.19",
-      end: "f99wq.90aw",
-    },
-  ])
-	
+export default function DndContextWrapper({items, handleDragEnd, removeItem, editItem}) {
   const sensors = useSensors(
     useSensor(PointerSensor),
     useSensor(KeyboardSensor, {
@@ -51,23 +31,12 @@ export default function DndContextWrapper() {
       modifiers={[restrictToVerticalAxis]}
     >
       <SortableContext items={items} strategy={verticalListSortingStrategy}>
-        {items.map((item, index) => (
-          <SortableItem key={item.id} id={item.id} data={item} index={index + 1} />
+        {items.map((item) => (
+          <SortableItem key={item.id} id={item.id} data={item} removeItem={removeItem} editItem={editItem}/>
         ))}
       </SortableContext>
     </DndContext>
   )
 
-  function handleDragEnd(event) {
-    const { active, over } = event
-
-    if (active.id !== over.id) {
-      setItems((items) => {
-        const oldIndex = items.findIndex((item) => item.id === active.id)
-        const newIndex = items.findIndex((item) => item.id === over.id)
-
-        return arrayMove(items, oldIndex, newIndex)
-      })
-    }
-  }
+  
 }

@@ -2,14 +2,27 @@ import React, { useState } from "react"
 import DndContextWrapper from "./DndContextWrapper.jsx"
 import InputElement from "./InputElement.jsx"
 import InputFormEntry from "./InputFormEntry.jsx"
+import { arrayMove } from '@dnd-kit/sortable'
 
 export default function MenuEducation() {
-  
+  const [items, setItems] = useState([])
 
+  function handleDragEnd(event) {
+    const { active, over } = event
+
+    if (active.id !== over.id) {
+      setItems((items) => {
+        const oldIndex = items.findIndex((item) => item.id === active.id)
+        const newIndex = items.findIndex((item) => item.id === over.id)
+
+        return arrayMove(items, oldIndex, newIndex)
+      })
+    }
+  }
   // collect the values and push them to the array
-  const handleSubmit = (event) => {   
+  const handleSubmit = (event) => {
     event.preventDefault()
-    
+
     const newItem = {
       id: crypto.randomUUID(),
       name: event.target.schoolName.value,
@@ -18,21 +31,27 @@ export default function MenuEducation() {
       start: event.target.start.value,
       end: event.target.end.value,
     }
-    
+
+    setItems(items => [...items, newItem])
   }
 
   return (
     <>
-      <DndContextWrapper />
+      <DndContextWrapper handleDragEnd={handleDragEnd} items={items} />
       <InputFormEntry handleSubmit={handleSubmit}>
-        <InputElement labelText="School" width="form-width-100" name='schoolName' required={true}/>
+        <InputElement
+          labelText="School"
+          width="form-width-100"
+          name="schoolName"
+          required={true}
+        />
         <div className="input-row">
-          <InputElement labelText="Degree" name='degree'/>
-          <InputElement labelText="Location" name='location' required={true}/>
+          <InputElement labelText="Degree" name="degree" />
+          <InputElement labelText="Location" name="location" required={true} />
         </div>
         <div className="input-row">
-          <InputElement labelText="Start" type="date" name='start'/>
-          <InputElement labelText="End" type="date" name='end'/>
+          <InputElement labelText="Start" type="date" name="start" />
+          <InputElement labelText="End" type="date" name="end" />
         </div>
       </InputFormEntry>
     </>
