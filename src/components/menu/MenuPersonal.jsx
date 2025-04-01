@@ -57,7 +57,7 @@ export default function MenuPersonal({ items, setItems }) {
             value={items.birthday}
           />
         </div>
-        <h1>Adress information</h1>
+        <h1 className='adress'>Adress information</h1>
         <div className="input-row">
           <InputElement
             labelText="Street"

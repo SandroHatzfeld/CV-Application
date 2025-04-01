@@ -69,7 +69,6 @@ export default function MiscMenu({
     setItemsBusiness([])
     setSettings(defaultDataSettings)
   }
-
   return (
     <div className="misc-menu-wrapper">
       <InputButton

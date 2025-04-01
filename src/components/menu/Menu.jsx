@@ -1,6 +1,7 @@
 import { useState } from "react"
 import MenuContent from "./MenuContent.jsx"
 import MenuTab from "./MenuTabs.jsx"
+import { preload } from 'react-dom'
 
 const tabs = [
   {
@@ -36,8 +37,6 @@ export default function Menu({
   setSettings,
 }) {
   const [currentTab, setCurrentTab] = useState(0)
-
-  
 
   const changeTab = (index) => {
     setCurrentTab(index)

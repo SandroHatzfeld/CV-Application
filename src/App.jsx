@@ -35,12 +35,15 @@ export default function App() {
         settings={settings}
         setSettings={setSettings}
       />
-      <CVRenderer
-        itemsPersonal={itemsPersonal}
+      <div className="renderer-wrapper" id="cv">
+        <div className="renderer"><CVRenderer
+        dataPersonal={itemsPersonal}
         itemsEducation={itemsEducation}
         itemsBusiness={itemsBusiness}
         settings={settings}
-      />
+      /></div>
+      </div>
+      
     </>
   )
 }
