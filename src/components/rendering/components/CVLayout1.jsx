@@ -1,20 +1,10 @@
+import HeaderLayout1 from './layout1/HeaderLayout1.jsx'
 import ListRenderer from './ListRenderer.jsx'
 
 export default function CVLayout1(props) {
   return (
     <div id="CVLayout1">
-      <header
-        style={{
-          backgroundColor: props.settings.color0,
-          color: props.settings.color2,
-        }}
-      >
-        <h1 className="name">
-          {`${props.dataPersonal.title} ${props.dataPersonal.firstName} ${props.dataPersonal.lastName}`}
-        </h1>
-        <p className="contact">{`E-Mail: ${props.dataPersonal.eMail}`}</p>
-        <p className="contact">{`Phone: ${props.dataPersonal.phoneNumber}`}</p>
-      </header>
+      <HeaderLayout1 {...props}/>
       <main>
         <ListRenderer items={props.itemsEducation} title="Education" />
         <ListRenderer items={props.itemsBusiness} title="Experience" />

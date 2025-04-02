@@ -29,8 +29,8 @@ export default function MenuEducation({items, setItems}) {
     if(currentlyEditing) {
       const editedItem = {
         id: filledValues.id,
-        name: event.target.schoolName.value,
-        degree: event.target.degree.value,
+        name: event.target.name.value,
+        description: event.target.description.value,
         location: event.target.location.value,
         start: event.target.start.value,
         end: event.target.end.value,
@@ -51,8 +51,8 @@ export default function MenuEducation({items, setItems}) {
     } else {
       const newItem = {
         id: crypto.randomUUID(),
-        name: event.target.schoolName.value,
-        degree: event.target.degree.value,
+        name: event.target.name.value,
+        description: event.target.description.value,
         location: event.target.location.value,
         start: event.target.start.value,
         end: event.target.end.value,
@@ -68,7 +68,7 @@ export default function MenuEducation({items, setItems}) {
     setFilledValues({
       id: items[itemIndex].id,
       name: items[itemIndex].name,
-      degree: items[itemIndex].degree,
+      description: items[itemIndex].description,
       location: items[itemIndex].location,
       start: items[itemIndex].start,
       end: items[itemIndex].end,
@@ -110,13 +110,13 @@ export default function MenuEducation({items, setItems}) {
         <InputElement
           labelText="School"
           width="form-width-100"
-          name="schoolName"
+          name="name"
           required={true}
           value={filledValues.name}
         />
         <div className="input-row">
-          <InputElement labelText="Degree" name="degree" 
-          value={filledValues.degree}/>
+          <InputElement labelText="Degree" name="description" 
+          value={filledValues.description}/>
           <InputElement labelText="Location" name="location" required={true} 
           value={filledValues.location}/>
         </div>

@@ -14,7 +14,7 @@ const dataEducation = [
   {
     id: crypto.randomUUID(),
     name: "Collage ",
-    degree: "Major",
+    description: "Major",
     location: "Tennessee",
     start: "1975-03-10",
     end: "1983-05-12",
@@ -22,7 +22,7 @@ const dataEducation = [
   {
     id: crypto.randomUUID(),
     name: "University ",
-    degree: "Doctor of Biology",
+    description: "Doctor of Biology",
     location: "New York",
     start: "1994-03-10",
     end: "2001-05-12",
@@ -34,6 +34,7 @@ const dataBusiness = [
     name: "Teacher for Biology",
     position: "Teacher",
     description: "Teaching students in the university of Ottowa",
+    location: "New York",
     start: "2003-08-19",
     end: "2020-12-01",
   },

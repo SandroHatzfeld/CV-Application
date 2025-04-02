@@ -4,8 +4,8 @@ import { arrayMove } from "@dnd-kit/sortable"
 import InputElement from "./inputs/InputElement.jsx"
 import InputFormEntry from "./inputs/InputFormEntry.jsx"
 
-export default function MenuBusiness({items, setItems}) {
-  const [inputVisible, setInputVisible] = useState(true)
+export default function MenuExperience({ items, setItems }) {
+  const [inputVisible, setInputVisible] = useState(false)
   const [filledValues, setFilledValues] = useState({})
   const [currentlyEditing, setCurrentlyEditing] = useState(false)
 
@@ -31,6 +31,7 @@ export default function MenuBusiness({items, setItems}) {
         id: filledValues.id,
         name: event.target.business.value,
         position: event.target.position.value,
+        location: event.target.location.value,
         description: event.target.description.value,
         start: event.target.start.value,
         end: event.target.end.value,
@@ -52,6 +53,7 @@ export default function MenuBusiness({items, setItems}) {
         id: crypto.randomUUID(),
         name: event.target.business.value,
         position: event.target.position.value,
+        location: event.target.location.value,
         description: event.target.description.value,
         start: event.target.start.value,
         end: event.target.end.value,
@@ -65,10 +67,11 @@ export default function MenuBusiness({items, setItems}) {
     const itemIndex = items.findIndex((item) => item.id === id)
 
     setFilledValues({
-			id: items[itemIndex].id,
+      id: items[itemIndex].id,
       name: items[itemIndex].name,
       position: items[itemIndex].position,
-      location: items[itemIndex].description,
+      location: items[itemIndex].location,
+      description: items[itemIndex].description,
       start: items[itemIndex].start,
       end: items[itemIndex].end,
     })
@@ -113,18 +116,26 @@ export default function MenuBusiness({items, setItems}) {
           name="business"
           value={filledValues.name}
         />
+          <div className="input-row">
         <InputElement
           labelText="Position"
-          width="form-width-100"
+          width="form-width-50"
           name="position"
           value={filledValues.position}
         />
+        <InputElement
+          labelText="Location"
+          width="form-width-50"
+          name="location"
+          value={filledValues.location}
+        />
+        </div>
         <InputElement
           labelText="Description"
           type="textarea"
           width="form-width-100"
           name="description"
-          value={filledValues.location}
+          value={filledValues.description}
         />
         <div className="input-row">
           <InputElement
