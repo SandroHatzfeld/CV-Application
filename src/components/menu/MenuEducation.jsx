@@ -5,7 +5,7 @@ import InputFormEntry from "./inputs/InputFormEntry.jsx"
 import { arrayMove } from "@dnd-kit/sortable"
 
 export default function MenuEducation({items, setItems}) {
-  const [inputVisible, setInputVisible] = useState(true)
+  const [inputVisible, setInputVisible] = useState(false)
   const [filledValues, setFilledValues] = useState({})
   const [currentlyEditing, setCurrentlyEditing] = useState(false)
 

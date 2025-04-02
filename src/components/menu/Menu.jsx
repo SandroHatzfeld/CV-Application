@@ -9,12 +9,12 @@ const tabs = [
       "Please enter some personal information about you, that will be displayed on your CV.",
   },
   {
-    name: "Educational experience",
+    name: "Education",
     description:
       "Please enter some information about your educational history. Add more entries by clicking the plus icon. Use the handles to reorder the entries.",
   },
   {
-    name: "Business experience",
+    name: "Experience",
     description:
       "Please enter some information about your work history. Add more entries by clicking the plus icon. Use the handles to reorder the entries.",
   },
