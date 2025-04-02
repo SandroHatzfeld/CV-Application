@@ -1,3 +1,4 @@
+import html2pdf from 'html2pdf.js'
 import InputButton from "./inputs/InputButton.jsx"
 
 export default function MiscMenu({
@@ -69,6 +70,23 @@ export default function MiscMenu({
     setItemsBusiness([])
     setSettings(defaultDataSettings)
   }
+
+  const printCV = () => {
+    const cv = document.querySelector("#cv")
+    cv.classList.add('printing')
+    const printOptions = {
+      margin: 0,
+      filename: 'myGeneratedCV.pdf',
+      jsPDF: {
+        unit: 'mm',
+        format: 'a4',
+        orientation: 'portrait',
+        putOnlyUsedFonts: true,
+      }
+    }
+    html2pdf().set(printOptions).from(cv).save()
+    // .then( cv.classList.remove('printing'))
+  }
   return (
     <div className="misc-menu-wrapper">
       <InputButton
@@ -84,6 +102,7 @@ export default function MiscMenu({
       <InputButton
         icon="./assets/icons/printer.svg"
         inputText="Export for printing"
+        onClick={printCV}
       />
     </div>
   )
