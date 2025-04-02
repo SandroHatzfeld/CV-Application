@@ -48,13 +48,13 @@ export default function MiscMenu({
     },
   ]
   const defaultDataSettings = {
-    backgroundColor: "#efefef",
-    headerColor: "#efab41",
-    fontColor: "#3b3b3b",
-    headingFont: "Arial",
-    paragraphFont: "Arial",
-    footerFont: "Arial",
-    layoutOption: "0",
+    color0: "#3b3b3b",
+    color1: "#efefef",
+    color2: "#416fef",
+    color3: "#efab41",
+    font0: "Arial",
+    font1: "Arial",
+    font2: "Arial",
   }
 
   const setDefaultData = () => {

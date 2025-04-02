@@ -3,47 +3,38 @@ import MenuCustomize from "./MenuCustomize.jsx"
 import MenuEducation from "./MenuEducation.jsx"
 import MenuBusiness from "./MenuBusiness.jsx"
 
-export default function MenuContent({
-  description,
-  tabIndex,
-  itemsPersonal,
-  setItemsPersonal,
-  itemsEducation,
-  setItemsEducation,
-  itemsBusiness,
-  setItemsBusiness,
-	settings,
-	setSettings,
-}) {
+export default function MenuContent(
+  props
+) {
   
 
-  switch (tabIndex) {
+  switch (props.tabIndex) {
     case 0:
       return (
         <>
-          <p>{description}</p>
-          <MenuPersonal items={itemsPersonal} setItems={setItemsPersonal} />
+          <p>{props.description}</p>
+          <MenuPersonal items={props.itemsPersonal} setItems={props.setItemsPersonal} />
         </>
       )
     case 1:
       return (
         <>
-          <p>{description}</p>
-          <MenuEducation items={itemsEducation} setItems={setItemsEducation} />
+          <p>{props.description}</p>
+          <MenuEducation items={props.itemsEducation} setItems={props.setItemsEducation} />
         </>
       )
     case 2:
       return (
         <>
-          <p>{description}</p>
-          <MenuBusiness items={itemsBusiness} setItems={setItemsBusiness} />
+          <p>{props.description}</p>
+          <MenuBusiness items={props.itemsBusiness} setItems={props.setItemsBusiness} />
         </>
       )
     case 3:
       return (
         <>
-          <p>{description}</p>
-          <MenuCustomize settings={settings} setSettings={setSettings} />
+          <p>{props.description}</p>
+          <MenuCustomize settings={props.settings} setSettings={props.setSettings} layoutID={props.layoutID} setLayoutID={props.setLayoutID} />
         </>
       )
     default:

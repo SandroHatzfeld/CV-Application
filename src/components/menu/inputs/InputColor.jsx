@@ -5,15 +5,14 @@ export default function InputColor({
   name = "",
   required = false,
   value = "",
-  handleChange
+  handleChange,
 }) {
-  
   return (
     <div className={width + " input-container input-color"}>
       <label>
         <div>{labelText}</div>
         <input
-        onChange={handleChange}
+          onChange={handleChange}
           type={type}
           name={name}
           required={required}

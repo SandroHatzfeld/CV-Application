@@ -8,14 +8,15 @@ export default function App() {
   const [itemsEducation, setItemsEducation] = useState([])
   const [itemsBusiness, setItemsBusiness] = useState([])
   const [settings, setSettings] = useState({
-    backgroundColor: "#efefef",
-    headerColor: "#efab41",
-    fontColor: "#3b3b3b",
-    headingFont: "Arial",
-    paragraphFont: "Arial",
-    footerFont: "Arial",
-    layoutOption: "0",
+    color0: "",
+    color1: "",
+    color2: "",
+    color3: "",
+    font0: "",
+    font1: "",
+    font2: "",
   })
+  const [layoutID, setLayoutID] = useState(0)
 
   return (
     <>
@@ -24,6 +25,7 @@ export default function App() {
         setItemsEducation={setItemsEducation}
         setItemsBusiness={setItemsBusiness}
         setSettings={setSettings}
+        setLayoutID={setLayoutID}
       />
       <Menu
         itemsPersonal={itemsPersonal}
@@ -34,6 +36,8 @@ export default function App() {
         setItemsBusiness={setItemsBusiness}
         settings={settings}
         setSettings={setSettings}
+        layoutID={layoutID}
+        setLayoutID={setLayoutID}
       />
       <div className="renderer-wrapper" id="cv">
         <div className="renderer"><CVRenderer

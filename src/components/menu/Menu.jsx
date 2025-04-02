@@ -1,7 +1,6 @@
 import { useState } from "react"
 import MenuContent from "./MenuContent.jsx"
 import MenuTab from "./MenuTabs.jsx"
-import { preload } from 'react-dom'
 
 const tabs = [
   {
@@ -26,16 +25,7 @@ const tabs = [
   },
 ]
 
-export default function Menu({
-  itemsPersonal,
-  setItemsPersonal,
-  itemsEducation,
-  setItemsEducation,
-  itemsBusiness,
-  setItemsBusiness,
-  settings,
-  setSettings,
-}) {
+export default function Menu(props) {
   const [currentTab, setCurrentTab] = useState(0)
 
   const changeTab = (index) => {
@@ -60,14 +50,7 @@ export default function Menu({
         <MenuContent
           description={tabs[currentTab].description}
           tabIndex={currentTab}
-          itemsPersonal={itemsPersonal}
-          setItemsPersonal={setItemsPersonal}
-          itemsEducation={itemsEducation}
-          setItemsEducation={setItemsEducation}
-          itemsBusiness={itemsBusiness}
-          setItemsBusiness={setItemsBusiness}
-          settings={settings}
-          setSettings={setSettings}
+          {...props}
         />
       </div>
     </div>
