@@ -7,15 +7,7 @@ export default function App() {
   const [itemsPersonal, setItemsPersonal] = useState({})
   const [itemsEducation, setItemsEducation] = useState([])
   const [itemsBusiness, setItemsBusiness] = useState([])
-  const [settings, setSettings] = useState({
-    color0: "",
-    color1: "",
-    color2: "",
-    color3: "",
-    font0: "",
-    font1: "",
-    font2: "",
-  })
+  const [settings, setSettings] = useState({})
   const [layoutID, setLayoutID] = useState(0)
 
   return (
@@ -40,14 +32,15 @@ export default function App() {
         setLayoutID={setLayoutID}
       />
       <div className="renderer-wrapper" id="cv">
-        <div className="renderer"><CVRenderer
-        dataPersonal={itemsPersonal}
-        itemsEducation={itemsEducation}
-        itemsBusiness={itemsBusiness}
-        settings={settings}
-      /></div>
+        <div className="renderer">
+          <CVRenderer
+            dataPersonal={itemsPersonal}
+            itemsEducation={itemsEducation}
+            itemsBusiness={itemsBusiness}
+            settings={settings}
+          />
+        </div>
       </div>
-      
     </>
   )
 }

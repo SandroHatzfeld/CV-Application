@@ -2,20 +2,20 @@ export default function InputLayout({
   name = "",
   options = [],
   handleChange,
-  defaultChecked,
+  checkedID,
 }) {
   return (
     <div className="input-container input-layout">
       <fieldset>
         {options.map((option, index) => {
           return (
-            <label key={option.name}>
+            <label key={option.name + index}>
               <input
               onChange={() => handleChange(index)}
                 type="radio"
                 value={index}
                 name={name}
-                defaultChecked={index === defaultChecked}
+                defaultChecked={index === checkedID}
                 tabIndex="0"
               ></input>
               <img src={option.image} />

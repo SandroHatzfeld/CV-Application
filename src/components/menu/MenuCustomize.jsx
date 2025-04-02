@@ -24,9 +24,7 @@ export default function MenuCustomize({ settings, setSettings, layoutID, setLayo
     setSettings({
       ...settings,
       [event.target.name]: event.target.value,
-    })
-    console.log(settings);
-    
+    })   
   }
 
   return (
@@ -37,7 +35,7 @@ export default function MenuCustomize({ settings, setSettings, layoutID, setLayo
           name="layoutOption"
           options={layoutOptions}
           handleChange={handleLayoutChange}
-          defaultChecked={layoutID}
+          checkedID={layoutID}
         />
       </div>
       <div className="menu-input-container">
@@ -48,7 +46,7 @@ export default function MenuCustomize({ settings, setSettings, layoutID, setLayo
               key={index + color.displayName + layoutID}
               labelText={color.displayName}
               name={"color" + index}
-              value={color.value}
+              value={settings["color"+index]? settings["color"+index]: color.value}
               handleChange={handleChange}
             />
           )
@@ -62,6 +60,7 @@ export default function MenuCustomize({ settings, setSettings, layoutID, setLayo
               key={index + font.displayName + layoutID}
               labelText={font.displayName}
               name={"font" + index}
+              selected={settings["font"+index] ? settings["font"+index] : fontOptions[0]}
               options={fontOptions}
               handleChange={handleChange}
             />
