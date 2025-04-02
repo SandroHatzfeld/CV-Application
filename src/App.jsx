@@ -31,16 +31,13 @@ export default function App() {
         layoutID={layoutID}
         setLayoutID={setLayoutID}
       />
-      <div className="renderer-wrapper" id="cv">
-        <div className="renderer">
-          <CVRenderer
-            dataPersonal={itemsPersonal}
-            itemsEducation={itemsEducation}
-            itemsBusiness={itemsBusiness}
-            settings={settings}
-          />
-        </div>
-      </div>
+      <CVRenderer
+        dataPersonal={itemsPersonal}
+        itemsEducation={itemsEducation}
+        itemsBusiness={itemsBusiness}
+        settings={settings}
+        layoutID={layoutID}
+      />
     </>
   )
 }

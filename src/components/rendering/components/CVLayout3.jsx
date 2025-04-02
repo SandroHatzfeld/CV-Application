@@ -1,6 +1,6 @@
-export default function CVLayout1(props) {
+export default function CVLayout3(props) {
   return (
-    <div id='CVLayout1'>
+    <div id='CVLayout3'>
       <header style={{backgroundColor:props.settings.headerColor, color: props.settings.fontColor}}>{props.dataPersonal.title}</header>
       <main></main>
       <footer></footer>
