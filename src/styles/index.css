@@ -330,5 +330,16 @@ fieldset div {
 }
 
 .list-item {
-  display: flex;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: start;
+  justify-content: space-between;
+}
+
+#CVLayout1 main, #CVLayout1 header {
+  padding: 2rem;
+}
+#CVLayout1 h2, #CVLayout1 h3, #CVLayout1 p{
+  margin: 0;
 }
