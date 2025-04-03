@@ -11,8 +11,8 @@ export default function HeaderLayout1(props) {
         {props.dataPersonal.firstName && props.dataPersonal.firstName}
         {props.dataPersonal.lastName && props.dataPersonal.lastName}
       </h1>
-      <p className="contact">{`E-Mail: ${props.dataPersonal.eMail}`}</p>
-      <p className="contact">{`Phone: ${props.dataPersonal.phoneNumber}`}</p>
+      <p className="contact">{props.dataPersonal.eMail && `E-Mail: ${props.dataPersonal.eMail}`}</p>
+      <p className="contact">{props.dataPersonal.phoneNumber && `Phone: ${props.dataPersonal.phoneNumber}`}</p>
     </header>
   )
 }

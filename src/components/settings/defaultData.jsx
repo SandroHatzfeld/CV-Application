@@ -4,6 +4,7 @@ const dataPersonal = {
   lastName: "Dieter",
   eMail: "hans.dieter1961@gmail.com",
   phoneNumber: "+19199 938877",
+  description: "I'm Hans, an elderly dude",
   birthday: "1961-02-26",
   street: "Mainstreet",
   number: "43a",

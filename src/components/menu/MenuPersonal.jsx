@@ -12,6 +12,7 @@ export default function MenuPersonal({ items, setItems }) {
       eMail: event.target.eMail.value,
       phoneNumber: event.target.phoneNumber.value,
       birthday: event.target.birthday.value,
+      description: event.target.description.value,
       street: event.target.street.value,
       number: event.target.number.value,
       zip: event.target.zip.value,
@@ -57,6 +58,13 @@ export default function MenuPersonal({ items, setItems }) {
             value={items.birthday}
           />
         </div>
+        <InputElement 
+        labelText="Description"
+          type="textarea"
+          width="form-width-100"
+          name="description"
+          value={items.description}
+        />
         <h1 className='adress'>Adress information</h1>
         <div className="input-row">
           <InputElement

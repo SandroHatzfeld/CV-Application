@@ -10,10 +10,9 @@ export default function CVLayout1(props) {
         <ListRenderer items={props.itemsBusiness} title="Experience" />
       </main>
       <footer>
-        <h2>Adress:</h2>
+        {props.dataPersonal.street && <h2>Adress:</h2>}
         <p className="contact">{`${props.dataPersonal.street} ${props.dataPersonal.number}`}</p>
         <p className="contact">{`${props.dataPersonal.zip} ${props.dataPersonal.city}`}</p>
-
       </footer>
     </div>
   )
