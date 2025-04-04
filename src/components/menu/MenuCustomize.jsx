@@ -3,21 +3,11 @@ import InputDropdown from "./inputs/InputDropdown.jsx"
 import InputLayout from "./inputs/InputLayout.jsx"
 import { layoutOptions } from '../settings/layoutOptions.jsx'
 import { fontOptions } from '../settings/fontOptions.jsx'
+import { colorOptions } from '../settings/colorOptions.jsx'
 
 export default function MenuCustomize({ settings, setSettings, layoutID, setLayoutID }) {
   const handleLayoutChange = (id) => {
-    setLayoutID(id)
-
-    setSettings({
-      color0: layoutOptions[id].colors[0].value,
-      color1: layoutOptions[id].colors[1].value,
-      color2: layoutOptions[id].colors[2].value,
-      color3: layoutOptions[id].colors[3].value,
-      font0: fontOptions[0],
-      font1: fontOptions[0],
-      font2: fontOptions[0],
-    })
-    
+    setLayoutID(id)    
   }
 
   const handleChange = (event) => {
@@ -25,6 +15,8 @@ export default function MenuCustomize({ settings, setSettings, layoutID, setLayo
       ...settings,
       [event.target.name]: event.target.value,
     })   
+    console.log(settings);
+    
   }
 
   return (
@@ -40,13 +32,13 @@ export default function MenuCustomize({ settings, setSettings, layoutID, setLayo
       </div>
       <div className="menu-input-container">
         <h1>Colors</h1>
-        {layoutOptions[layoutID].colors.map((color, index) => {
+        {colorOptions.map((color, index) => {
           return (
             <InputColor
               key={index + color.displayName + layoutID}
               labelText={color.displayName}
-              name={"color" + index}
-              value={settings["color"+index]? settings["color"+index]: color.value}
+              name={color.name}
+              value={settings[color.name]? settings[color.name]: color.defaultValue}
               handleChange={handleChange}
             />
           )
@@ -54,14 +46,14 @@ export default function MenuCustomize({ settings, setSettings, layoutID, setLayo
       </div>
       <div className="menu-input-container">
         <h1>Fonts</h1>
-        {layoutOptions[layoutID].fonts.map((font, index) => {
+        {fontOptions.areas.map((area, index) => {
           return (
             <InputDropdown
-              key={index + font.displayName + layoutID}
-              labelText={font.displayName}
-              name={"font" + index}
-              selected={settings["font"+index] ? settings["font"+index] : fontOptions[0]}
-              options={fontOptions}
+              key={index + area + layoutID}
+              labelText={area}
+              name={area}
+              selected={settings[area] ? settings[area] : fontOptions.options[0]}
+              options={fontOptions.options}
               handleChange={handleChange}
             />
           )

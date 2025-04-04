@@ -40,5 +40,18 @@ const dataBusiness = [
     end: "2020-12-01",
   },
 ]
+const dataCustomiztion = {
+  mainColor: "#f9f6b6",
+  mainTextColor: "#1f1f1f",
+  accentColor: "#2fc07a",
+  textColor: "#eeeeee",
+  backgroundColor: "#3b3b3b",
+  footerColor: "#b82f2f",
+  footerTextColor: "#ffffff",
+  Header: "Arial",
+  Headlines: "Arial",
+  Paragraphs: "Arial",
+  Footer: "Arial",
+}
 
-export {dataBusiness, dataEducation, dataPersonal}
+export { dataBusiness, dataEducation, dataPersonal, dataCustomiztion }

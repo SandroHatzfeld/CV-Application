@@ -4,9 +4,8 @@ import {
   dataBusiness,
   dataEducation,
   dataPersonal,
+  dataCustomiztion
 } from "../settings/defaultData.jsx"
-import { layoutOptions } from "../settings/layoutOptions.jsx"
-import { fontOptions } from "../settings/fontOptions.jsx"
 
 export default function MiscMenu({
   setItemsPersonal,
@@ -19,15 +18,7 @@ export default function MiscMenu({
     setItemsPersonal(dataPersonal)
     setItemsEducation(dataEducation)
     setItemsBusiness(dataBusiness)
-    setSettings({
-      color0: layoutOptions[0].colors[0].value,
-      color1: layoutOptions[0].colors[1].value,
-      color2: layoutOptions[0].colors[2].value,
-      color3: layoutOptions[0].colors[3].value,
-      font0: fontOptions[0],
-      font1: fontOptions[0],
-      font2: fontOptions[0],
-    })
+    setSettings(dataCustomiztion)
     setLayoutID(0)
   }
 
