@@ -3,7 +3,7 @@ import ListRenderer from "./ListRenderer.jsx"
 
 export default function CVLayout1(props) {
   return (
-    <div id="CVLayout1">
+    <div id="CVLayout1" className='layout'>
       <HeaderLayout1 {...props} />
       <main
         style={{
