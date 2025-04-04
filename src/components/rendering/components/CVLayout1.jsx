@@ -12,8 +12,8 @@ export default function CVLayout1(props) {
           {props.dataPersonal.description && <h2>About Me:</h2>}
           {props.dataPersonal.description && <p>{props.dataPersonal.description}</p>}
         </div>
-        <ListRenderer items={props.itemsEducation} title="Education" itemHeading="" itemDescription="Degree"/>
-        <ListRenderer items={props.itemsBusiness} title="Experience" itemHeading="" itemDescription="Position"/>
+        <ListRenderer items={props.itemsEducation} title="Education" itemDescription="Degree"/>
+        <ListRenderer items={props.itemsBusiness} title="Experience" itemDescription="Position"/>
       </main>
       <footer style={{color: props.settings.color2}}>
         {props.dataPersonal.street && <h2>Adress:</h2>}
