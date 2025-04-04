@@ -2,8 +2,9 @@ export default function HeaderLayout1(props) {
   return (
     <header
       style={{
-        backgroundColor: props.settings.color0,
-        color: props.settings.color2,
+        backgroundColor: props.settings.mainColor,
+        color: props.settings.mainTextColor,
+        fontFamily: props.settings.headerFont
       }}
     >
       <h1 className="name">

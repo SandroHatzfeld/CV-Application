@@ -3,10 +3,10 @@ export default function ListRenderer(props) {
   if (props.items.length !== 0) {
     return (
       <div className="list">
-        <h2>{props.title}</h2>
+        <h2 style={{fontFamily: props.settings.headlineFont}}>{props.title}</h2>
         {props.items.map((item) => {
           return (
-            <div className="list-item" key={item.name}>
+            <div className="list-item" key={item.name} style={{fontFamily:props.settings.paragraphFont}}>
               <div className="list-item-time">
                 {new Date(item.start).toLocaleDateString()}
                 <br />

@@ -24,7 +24,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-* {
+.misc-menu-wrapper *, .menu * {
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
 }
 
@@ -323,10 +323,6 @@ fieldset div {
     0 4px 8px hsl(0deg 0% 0% / 0.2),
     0 8px 16px hsl(0deg 0% 0% / 0.2),
     0 16px 24px hsl(0deg 0% 0% / 0.2);
-}
-
-.list {
-  color: var(--textcolor-dark);
 }
 
 .list-item {

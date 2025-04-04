@@ -1,7 +1,11 @@
 import InputColor from "./inputs/InputColor.jsx"
 import InputDropdown from "./inputs/InputDropdown.jsx"
 import InputLayout from "./inputs/InputLayout.jsx"
-import { layoutOptions, fontOptions, colorOptions } from "../settings/options.jsx"
+import {
+  layoutOptions,
+  fontOptions,
+  colorOptions,
+} from "../settings/options.jsx"
 import { dataCustomiztion } from "../settings/defaultData.jsx"
 
 export default function MenuCustomize({
@@ -18,7 +22,7 @@ export default function MenuCustomize({
     setSettings({
       ...settings,
       [event.target.name]: event.target.value,
-    })
+    })   
   }
 
   return (
@@ -55,11 +59,13 @@ export default function MenuCustomize({
         {fontOptions.areas.map((area, index) => {
           return (
             <InputDropdown
-              key={index + area + layoutID}
-              labelText={area}
-              name={area}
+              key={index + area.displayName + layoutID}
+              labelText={area.displayName}
+              name={area.name}
               selected={
-                settings[area] ? settings[area] : dataCustomiztion[area]
+                settings[area.name]
+                  ? settings[area.name]
+                  : dataCustomiztion[area.name]
               }
               options={fontOptions.options}
               handleChange={handleChange}

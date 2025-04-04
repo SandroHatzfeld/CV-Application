@@ -48,10 +48,10 @@ const dataCustomiztion = {
   backgroundColor: "#3b3b3b",
   footerColor: "#b82f2f",
   footerTextColor: "#ffffff",
-  Header: "Arial",
-  Headlines: "Arial",
-  Paragraphs: "Arial",
-  Footer: "Arial",
+  headerFont: "Arial",
+  headlineFont: "Arial",
+  paragraphFont: "Arial",
+  footerFont: "Arial",
 }
 
 export { dataBusiness, dataEducation, dataPersonal, dataCustomiztion }

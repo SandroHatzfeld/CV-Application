@@ -30,8 +30,13 @@ const colorOptions = [
   },
 ]
 const fontOptions = {
-  areas: ["Header", "Headlines", "Paragraphs", "Footer"],
-  options: ["Arial", "Comic Sans", "Times New Roman"],
+  areas: [
+    { displayName: "Header", name: "headerFont" },
+    { displayName: "Headlines", name: "headlineFont" },
+    { displayName: "Paragraphs", name: "paragraphFont" },
+    { displayName: "Footer", name: "footerFont" },
+  ],
+  options: ["Arial", "Inter", "Times New Roman"],
 }
 
 const layoutOptions = [
