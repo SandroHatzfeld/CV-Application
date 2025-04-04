@@ -4,7 +4,7 @@ import {
   dataBusiness,
   dataEducation,
   dataPersonal,
-  dataCustomiztion
+  dataCustomiztion,
 } from "../settings/defaultData.jsx"
 
 export default function MiscMenu({
@@ -32,10 +32,14 @@ export default function MiscMenu({
 
   const printCV = () => {
     const cv = document.querySelector("#cv")
-    cv.classList.add("printing")
+    cv.classList.remove("display")
     const printOptions = {
-      margin: 0,
+      margin: 1,
       filename: "myGeneratedCV.pdf",
+      html2canvas: {
+        scale: 1,
+        scrollY: 0,
+      },
       jsPDF: {
         unit: "mm",
         format: "a4",
@@ -43,8 +47,11 @@ export default function MiscMenu({
         putOnlyUsedFonts: true,
       },
     }
-    html2pdf().set(printOptions).from(cv).save()
-    // .then( cv.classList.remove('printing'))
+    html2pdf()
+      .set(printOptions)
+      .from(cv)
+      .save()
+      .then(cv.classList.add("display"))
   }
   return (
     <div className="misc-menu-wrapper">

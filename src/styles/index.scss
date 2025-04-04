@@ -1,11 +1,11 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
   --background-color: #ffffff;
-  --bg-level1: #94C9EF;
-  --bg-level2: #5185AB;
+  --bg-level1: #94c9ef;
+  --bg-level2: #5185ab;
   --inputs: #ffffff;
-  --submit-btn: #084D7E;
+  --submit-btn: #084d7e;
   --textcolor-dark: #1c1c1c;
   --textcolor-light: #ffffff;
   --menu-width: 500px;
@@ -24,15 +24,16 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.misc-menu-wrapper *,
-.menu * {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+.misc-menu-wrapper,
+.menu {
+  * {
+    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  }
 }
 
 body {
   margin: 0;
 }
-
 
 .misc-menu-wrapper {
   padding: 0.5rem;
@@ -65,31 +66,30 @@ body {
   right: 1rem;
   bottom: 1rem;
   max-width: var(--menu-width);
-}
 
-.menu h1 {
-  position: relative;
-  margin-top: -0.4rem;
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
+  h1 {
+    position: relative;
+    margin-top: -0.4rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
 
-.menu h1.adress {
-  margin-top: 0.25rem;
-}
+    &.adress {
+      margin-top: 0.25rem;
+    }
+    &::after {
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      content: "";
+      width: 100%;
+      height: 2px;
+      background-color: var(--textcolor-light);
+    }
+  }
 
-.menu h1::after {
-  bottom: 0;
-  left: 0;
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 2px;
-  background-color: var(--textcolor-light);
-}
-
-.menu p {
-  margin: 0 0 1rem 0;
+  p {
+    margin: 0 0 1rem 0;
+  }
 }
 
 .menu-tab-container {
@@ -123,10 +123,10 @@ body {
   margin: 0 0.5rem 0.5rem 0.5rem;
   background-color: var(--bg-level2);
   border-radius: 0 0 0.75rem 0.75rem;
-}
 
-.menu-content>button {
-  margin-left: auto;
+  > button {
+    margin-left: auto;
+  }
 }
 
 .menu-input-container {
@@ -135,15 +135,14 @@ body {
   background-color: var(--bg-level1);
   box-sizing: content-box;
   border-radius: 0.5rem;
-}
 
-.menu-input-container:last-child {
-  margin-bottom: 0;
-}
-
-.menu-input-container button {
-  margin-top: 0.5rem;
-  margin-left: auto;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  button {
+    margin-top: 0.5rem;
+    margin-left: auto;
+  }
 }
 
 .input-container {
@@ -202,22 +201,20 @@ button {
   cursor: pointer;
 }
 
-
-
 .sortable-item {
   width: 100%;
   display: grid;
   grid-template-columns: auto 1fr auto auto;
   cursor: pointer;
   align-items: center;
-}
 
-.sortable-item h1 {
-  margin: 0;
-}
+  h1 {
+    margin: 0;
 
-.sortable-item h1::after {
-  display: none;
+    &::after {
+      display: none;
+    }
+  }
 }
 
 .move-item,
@@ -254,17 +251,19 @@ input[type="color"] {
   padding: 0;
 }
 
-.input-select label {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
+.input-select {
+  label {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 
-.input-select select {
-  justify-self: flex-end;
-  background-color: var(--textcolor-light);
-  color: var(--textcolor-dark);
-  border-radius: 0.25rem;
-  border: none;
+  select {
+    justify-self: flex-end;
+    background-color: var(--textcolor-light);
+    color: var(--textcolor-dark);
+    border-radius: 0.25rem;
+    border: none;
+  }
 }
 
 fieldset {
@@ -275,45 +274,43 @@ fieldset {
   grid-auto-columns: 1fr;
   grid-auto-flow: column;
   gap: 0.5rem;
+
+  label {
+    padding: 0.25rem;
+    background-color: var(--textcolor-light);
+    border-radius: 0.25rem;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto;
+
+    &:has(input:checked) {
+      border: 1px solid black;
+    }
+
+    &:has(input:focus) {
+      border: 2px solid var(--submit-btn);
+    }
+  }
+
+  input,
+  img {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  input {
+    width: 0px;
+  }
+  img {
+    border: 1px solid black;
+  }
+  div {
+    padding: 0;
+    width: 100%;
+    background-color: transparent;
+    text-align: center;
+    font-size: 0.8rem;
+  }
 }
-
-fieldset label {
-  padding: 0.25rem;
-  background-color: var(--textcolor-light);
-  border-radius: 0.25rem;
-  cursor: pointer;
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: auto auto;
-}
-
-fieldset label:has(input:checked) {
-  border: 1px solid black;
-}
-
-fieldset label:has(input:focus) {
-  border: 2px solid var(--submit-btn);
-}
-
-fieldset input {
-  grid-area: 1 / 1 / 2 / 2;
-  width: 0px;
-}
-
-fieldset img {
-  grid-area: 1 / 1 / 2 / 2;
-  border: 1px solid black;
-}
-
-fieldset div {
-  padding: 0;
-  width: 100%;
-  background-color: transparent;
-  text-align: center;
-  font-size: 0.8rem;
-}
-
-
 
 
 
