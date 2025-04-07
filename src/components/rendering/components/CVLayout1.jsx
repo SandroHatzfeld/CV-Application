@@ -1,10 +1,26 @@
-import HeaderLayout1 from "./layout1/HeaderLayout1.jsx"
 import ListRenderer from "./ListRenderer.jsx"
 
 export default function CVLayout1(props) {
   return (
-    <div id="CVLayout1" className='layout'>
-      <HeaderLayout1 {...props} />
+    <div id="CVLayout1" className="layout">
+      <header
+        style={{
+          backgroundColor: props.settings.mainColor,
+          color: props.settings.mainTextColor,
+          fontFamily: props.settings.headerFont,
+        }}
+      >
+        <h1 className="name">
+          {props.dataPersonal.title && props.dataPersonal.title}
+          {props.dataPersonal.firstName && props.dataPersonal.firstName}
+          {props.dataPersonal.lastName && props.dataPersonal.lastName}
+        </h1>
+
+
+        <p>{props.dataPersonal.description}</p>
+
+       
+      </header>
       <main
         style={{
           color: props.settings.textColor,
@@ -12,14 +28,6 @@ export default function CVLayout1(props) {
           fontFamily: props.settings.paragraphFont,
         }}
       >
-        <div>
-          {props.dataPersonal.description && (
-            <h2 style={{ fontFamily: props.settings.headlineFont }}>About Me:</h2>
-          )}
-          {props.dataPersonal.description && (
-            <p>{props.dataPersonal.description}</p>
-          )}
-        </div>
         <ListRenderer
           items={props.itemsEducation}
           title="Education"
@@ -37,12 +45,42 @@ export default function CVLayout1(props) {
         style={{
           color: props.settings.footerTextColor,
           backgroundColor: props.settings.footerColor,
-          fontFamily: props.settings.footerFont
+          fontFamily: props.settings.footerFont,
         }}
       >
-        {props.dataPersonal.street && <h2>Adress:</h2>}
-        <p className="contact">{`${props.dataPersonal.street} ${props.dataPersonal.number}`}</p>
-        <p className="contact">{`${props.dataPersonal.zip} ${props.dataPersonal.city}`}</p>
+        {props.dataPersonal.street ||
+        props.dataPersonal.number ||
+        props.dataPersonal.zip ||
+        props.dataPersonal.city ? (
+          <div>
+            <h2>Adress:</h2>
+            <p className="contact">{`${props.dataPersonal.street} ${props.dataPersonal.number}`}</p>
+            <p className="contact">{`${props.dataPersonal.zip} ${props.dataPersonal.city}`}</p>
+          </div>
+        ) : (
+          <></>
+        )}
+        {props.dataPersonal.title ||
+        props.dataPersonal.firstname ||
+        props.datatPersonal.lastName ? (
+          <div>
+            <h2>Contact:</h2>
+            <p className="contact">
+              {`${props.dataPersonal.title} ${props.dataPersonal.firstName} ${props.dataPersonal.lastName}`}
+              
+            </p>
+            <p className="contact">
+              {props.dataPersonal.eMail &&
+                `E-Mail: ${props.dataPersonal.eMail}`}
+            </p>
+            <p className="contact">
+              {props.dataPersonal.phoneNumber &&
+                `Phone: ${props.dataPersonal.phoneNumber}`}
+            </p>
+          </div>
+        ) : (
+          <></>
+        )}
       </footer>
     </div>
   )

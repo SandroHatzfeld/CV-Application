@@ -26,14 +26,6 @@
   }
 }
 
-.list-item {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 1rem;
-  align-items: start;
-  justify-content: space-between;
-}
-
 .layout {
   height: 100%;
   width: 100%;
@@ -43,6 +35,7 @@
 #CVLayout1 {
   grid-template-rows: auto 1fr auto;
 
+  font-size: 14px;
   main,
   header,
   footer {
@@ -50,5 +43,32 @@
   }
   footer {
     font-size: 0.75rem;
+    display: flex;
+    justify-content: space-evenly;
   }
+  
+  .list {
+    padding: 1rem;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
+  }
+
+  .list-item {
+    padding: 0.5rem 0;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 1rem;
+    align-items: start;
+    justify-content: space-between;
+    border-top: 1px solid;
+    
+    &:last-child {
+      border-bottom: 1px solid;
+    }
+  }
+  
+
 }
