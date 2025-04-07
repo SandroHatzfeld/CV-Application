@@ -43,8 +43,13 @@
   }
   footer {
     font-size: 0.75rem;
-    display: flex;
-    justify-content: space-evenly;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+
+    .footer-container {
+      // display: flex;
+    }
   }
   
   .list {

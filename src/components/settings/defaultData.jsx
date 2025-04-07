@@ -1,4 +1,4 @@
-const dataPersonal = {
+const defaultPersonal = {
   title: "Dr.",
   firstName: "Hans",
   lastName: "Dieter",
@@ -11,7 +11,7 @@ const dataPersonal = {
   zip: "88981",
   city: "Maintown",
 }
-const dataEducation = [
+const defaultEducation = [
   {
     id: crypto.randomUUID(),
     name: "Collage ",
@@ -29,7 +29,7 @@ const dataEducation = [
     end: "2001-05-12",
   },
 ]
-const dataBusiness = [
+const defaultBusiness = [
   {
     id: crypto.randomUUID(),
     name: "Teacher for Biology",
@@ -40,7 +40,7 @@ const dataBusiness = [
     end: "2020-12-01",
   },
 ]
-const dataCustomiztion = {
+const defaultCustomiztion = {
   mainColor: "#f9f6b6",
   mainTextColor: "#1f1f1f",
   accentColor: "#2fc07a",
@@ -53,5 +53,6 @@ const dataCustomiztion = {
   paragraphFont: "Arial",
   footerFont: "Arial",
 }
+const defaultLayoutSetting = 1
 
-export { dataBusiness, dataEducation, dataPersonal, dataCustomiztion }
+export { defaultBusiness, defaultEducation, defaultPersonal, defaultCustomiztion, defaultLayoutSetting }

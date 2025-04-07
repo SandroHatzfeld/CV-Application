@@ -6,7 +6,7 @@ import {
   fontOptions,
   colorOptions,
 } from "../settings/options.jsx"
-import { dataCustomiztion } from "../settings/defaultData.jsx"
+import { defaultCustomiztion } from "../settings/defaultData.jsx"
 
 export default function MenuCustomize({
   settings,
@@ -47,7 +47,7 @@ export default function MenuCustomize({
               value={
                 settings[color.name]
                   ? settings[color.name]
-                  : dataCustomiztion[color.name]
+                  : defaultCustomiztion[color.name]
               }
               handleChange={handleChange}
             />
@@ -65,7 +65,7 @@ export default function MenuCustomize({
               selected={
                 settings[area.name]
                   ? settings[area.name]
-                  : dataCustomiztion[area.name]
+                  : defaultCustomiztion[area.name]
               }
               options={fontOptions.options}
               handleChange={handleChange}

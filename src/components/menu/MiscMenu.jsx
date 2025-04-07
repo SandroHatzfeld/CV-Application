@@ -1,10 +1,11 @@
 import html2pdf from "html2pdf.js"
 import InputButton from "./inputs/InputButton.jsx"
 import {
-  dataBusiness,
-  dataEducation,
-  dataPersonal,
-  dataCustomiztion,
+  defaultBusiness,
+  defaultEducation,
+  defaultPersonal,
+  defaultCustomiztion,
+  defaultLayoutSetting,
 } from "../settings/defaultData.jsx"
 
 export default function MiscMenu({
@@ -15,11 +16,11 @@ export default function MiscMenu({
   setLayoutID,
 }) {
   const setDefaultData = () => {
-    setItemsPersonal(dataPersonal)
-    setItemsEducation(dataEducation)
-    setItemsBusiness(dataBusiness)
-    setSettings(dataCustomiztion)
-    setLayoutID(0)
+    setItemsPersonal(defaultPersonal)
+    setItemsEducation(defaultEducation)
+    setItemsBusiness(defaultBusiness)
+    setSettings(defaultCustomiztion)
+    setLayoutID(defaultLayoutSetting)
   }
 
   const removeAllData = () => {

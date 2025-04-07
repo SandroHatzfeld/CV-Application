@@ -15,11 +15,7 @@ export default function CVLayout1(props) {
           {props.dataPersonal.firstName && props.dataPersonal.firstName}
           {props.dataPersonal.lastName && props.dataPersonal.lastName}
         </h1>
-
-
         <p>{props.dataPersonal.description}</p>
-
-       
       </header>
       <main
         style={{
@@ -52,31 +48,34 @@ export default function CVLayout1(props) {
         props.dataPersonal.number ||
         props.dataPersonal.zip ||
         props.dataPersonal.city ? (
-          <div>
+          <div className="footer-container">
             <h2>Adress:</h2>
-            <p className="contact">{`${props.dataPersonal.street} ${props.dataPersonal.number}`}</p>
-            <p className="contact">{`${props.dataPersonal.zip} ${props.dataPersonal.city}`}</p>
+            <div>
+              <p className="contact">{`${props.dataPersonal.street} ${props.dataPersonal.number}`}</p>
+              <p className="contact">{`${props.dataPersonal.zip} ${props.dataPersonal.city}`}</p>
+            </div>
           </div>
         ) : (
           <></>
         )}
         {props.dataPersonal.title ||
         props.dataPersonal.firstname ||
-        props.datatPersonal.lastName ? (
-          <div>
+        props.dataPersonal.lastName ? (
+          <div className="footer-container">
             <h2>Contact:</h2>
-            <p className="contact">
-              {`${props.dataPersonal.title} ${props.dataPersonal.firstName} ${props.dataPersonal.lastName}`}
-              
-            </p>
-            <p className="contact">
-              {props.dataPersonal.eMail &&
-                `E-Mail: ${props.dataPersonal.eMail}`}
-            </p>
-            <p className="contact">
-              {props.dataPersonal.phoneNumber &&
-                `Phone: ${props.dataPersonal.phoneNumber}`}
-            </p>
+            <div>
+              <p className="contact">
+                {`${props.dataPersonal.title} ${props.dataPersonal.firstName} ${props.dataPersonal.lastName}`}
+              </p>
+              <p className="contact">
+                {props.dataPersonal.eMail &&
+                  `E-Mail: ${props.dataPersonal.eMail}`}
+              </p>
+              <p className="contact">
+                {props.dataPersonal.phoneNumber &&
+                  `Phone: ${props.dataPersonal.phoneNumber}`}
+              </p>
+            </div>
           </div>
         ) : (
           <></>
