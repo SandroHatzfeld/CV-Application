@@ -2,13 +2,14 @@ import { useState } from "react"
 import MiscMenu from "./components/menu/MiscMenu.jsx"
 import CVRenderer from "./components/rendering/CVRenderer.jsx"
 import Menu from "./components/menu/Menu.jsx"
+import { defaultCustomiztion, defaultLayoutSetting } from './components/settings/defaultData.jsx'
 
 export default function App() {
   const [itemsPersonal, setItemsPersonal] = useState({})
   const [itemsEducation, setItemsEducation] = useState([])
   const [itemsBusiness, setItemsBusiness] = useState([])
-  const [settings, setSettings] = useState({})
-  const [layoutID, setLayoutID] = useState(0)
+  const [settings, setSettings] = useState(defaultCustomiztion)
+  const [layoutID, setLayoutID] = useState(defaultLayoutSetting)
 
   return (
     <>

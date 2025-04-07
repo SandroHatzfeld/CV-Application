@@ -30,12 +30,12 @@
   height: 100%;
   width: 100%;
   display: grid;
+  font-size: 16px;
 }
 
 #CVLayout1 {
   grid-template-rows: auto 1fr auto;
 
-  font-size: 14px;
   main,
   header,
   footer {
@@ -74,6 +74,24 @@
       border-bottom: 1px solid;
     }
   }
-  
+}
 
+#CVLayout2 {
+  grid-template-columns: auto 1fr;
+
+  header,
+  main {
+    padding: 3rem 1rem;
+  }
+
+  header {
+    text-align: center;
+  }
+  .name {
+    font-size: 2rem;
+    font-weight: bolder;
+    line-height: 2rem;
+    text-transform: uppercase;
+    
+  }
 }

@@ -36,7 +36,7 @@ const fontOptions = {
     { displayName: "Paragraphs", name: "paragraphFont" },
     { displayName: "Footer", name: "footerFont" },
   ],
-  options: ["Arial", "Inter", "Times New Roman"],
+  options: ["Arial", "Times New Roman","Great Vibes","Josefin","Roboto","Oswald"],
 }
 
 const layoutOptions = [

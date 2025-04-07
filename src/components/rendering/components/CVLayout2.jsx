@@ -10,29 +10,54 @@ export default function CVLayout2(props) {
         }}
       >
         <h1 className="name">
-          {props.dataPersonal.title && props.dataPersonal.title}
-          {props.dataPersonal.firstName && props.dataPersonal.firstName}
+          {props.dataPersonal.title && props.dataPersonal.title} <br/>
+          {props.dataPersonal.firstName && props.dataPersonal.firstName} <br/>
           {props.dataPersonal.lastName && props.dataPersonal.lastName}
         </h1>
-        {props.dataPersonal.title ||
-        props.dataPersonal.firstname ||
-        props.dataPersonal.lastName ? (
-          <div className="header-container">
+        <div className="header-container">
+          {props.dataPersonal.eMail || 
+          props.dataPersonal.phoneNumber ||
+          props.dataPersonal.street ||
+          props.dataPersonal.number ||
+          props.dataPersonal.zip ||
+          props.dataPersonal.city ? (
             <h2>Contact:</h2>
-            <div>
-              <p className="contact">
-                {props.dataPersonal.eMail &&
-                  `E-Mail: ${props.dataPersonal.eMail}`}
-              </p>
-              <p className="contact">
-                {props.dataPersonal.phoneNumber &&
-                  `Phone: ${props.dataPersonal.phoneNumber}`}
-              </p>
+          ) : (
+            <></>
+          )}
+          <div>
+            <div className="contact">
+              {props.dataPersonal.eMail && (
+                <>
+                  <h3>E-Mail:</h3>
+                  <p> {props.dataPersonal.eMail}</p>
+                </>
+              )}
+            </div>
+            <div className="contact">
+              {props.dataPersonal.phoneNumber && (
+                <>
+                  <h3>Phone:</h3>
+                  <p> {props.dataPersonal.phoneNumber}</p>
+                </>
+              )}
+            </div>
+            <div className="contact">
+              {props.dataPersonal.street ||
+              props.dataPersonal.number ||
+              props.dataPersonal.zip ||
+              props.dataPersonal.city ? (
+                <>
+                  <h3>Adress:</h3>
+                  <p>{`${props.dataPersonal.street} ${props.dataPersonal.number}`}</p>
+                  <p>{`${props.dataPersonal.zip} ${props.dataPersonal.city}`}</p>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
           </div>
-        ) : (
-          <></>
-        )}
+        </div>
       </header>
       <main
         style={{
@@ -41,6 +66,12 @@ export default function CVLayout2(props) {
           fontFamily: props.settings.paragraphFont,
         }}
       >
+        {props.dataPersonal.description && (
+          <div>
+            <h2>Profile</h2>
+            <p className="contact">{props.dataPersonal.description}</p>
+          </div>
+        )}
         <ListRenderer
           items={props.itemsEducation}
           title="Education"
@@ -54,50 +85,6 @@ export default function CVLayout2(props) {
           {...props}
         />
       </main>
-      <footer
-        style={{
-          color: props.settings.footerTextColor,
-          backgroundColor: props.settings.footerColor,
-          fontFamily: props.settings.footerFont,
-        }}
-      >
-        {props.dataPersonal.street ||
-        props.dataPersonal.number ||
-        props.dataPersonal.zip ||
-        props.dataPersonal.city ? (
-          <div className="footer-container">
-            <h2>Adress:</h2>
-            <div>
-              <p className="contact">{`${props.dataPersonal.street} ${props.dataPersonal.number}`}</p>
-              <p className="contact">{`${props.dataPersonal.zip} ${props.dataPersonal.city}`}</p>
-            </div>
-          </div>
-        ) : (
-          <></>
-        )}
-        {props.dataPersonal.title ||
-        props.dataPersonal.firstname ||
-        props.dataPersonal.lastName ? (
-          <div className="footer-container">
-            <h2>Contact:</h2>
-            <div>
-              <p className="contact">
-                {`${props.dataPersonal.title} ${props.dataPersonal.firstName} ${props.dataPersonal.lastName}`}
-              </p>
-              <p className="contact">
-                {props.dataPersonal.eMail &&
-                  `E-Mail: ${props.dataPersonal.eMail}`}
-              </p>
-              <p className="contact">
-                {props.dataPersonal.phoneNumber &&
-                  `Phone: ${props.dataPersonal.phoneNumber}`}
-              </p>
-            </div>
-          </div>
-        ) : (
-          <></>
-        )}
-      </footer>
     </div>
   )
 }
