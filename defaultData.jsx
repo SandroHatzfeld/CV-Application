@@ -53,6 +53,6 @@ const defaultCustomiztion = {
   paragraphFont: "Arial",
   footerFont: "Arial",
 }
-const defaultLayoutSetting = 1
+const defaultLayoutSetting = 2
 
 export { defaultBusiness, defaultEducation, defaultPersonal, defaultCustomiztion, defaultLayoutSetting }

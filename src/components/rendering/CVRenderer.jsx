@@ -23,6 +23,8 @@ export default function CVRenderer(props) {
       break
   }
 
+  
+
   return (
     <>
       <div className="renderer-wrapper">

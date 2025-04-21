@@ -1,8 +1,8 @@
 import ListRenderer from "./ListRenderer.jsx"
-
 export default function CVLayout1(props) {
+
   return (
-    <div id="CVLayout1" className="layout">
+    <div id="CVLayout1" className="layout" >
       <header
         style={{
           backgroundColor: props.settings.mainColor,
