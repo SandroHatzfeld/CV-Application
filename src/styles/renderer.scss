@@ -45,32 +45,31 @@
     font-size: 0.75rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
-
-    .footer-container {
-      // display: flex;
-    }
   }
 
   .list {
-    padding: 1rem;
-    background-color: rgba($color: #000000, $alpha: 0.3);
+    padding: 0.65rem 1rem 1rem 1rem;
+
+    background-color: rgba($color: #000000 , $alpha: 0.05);
+    border-left: 1rem solid var(--accentColor);
 
     &:not(:last-child) {
       margin-bottom: 1rem;
     }
-  }
 
-  .list-item {
-    padding: 0.5rem 0;
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 1rem;
-    align-items: start;
-    justify-content: space-between;
-    border-top: 1px solid;
 
-    &:last-child {
-      border-bottom: 1px solid;
+    .list-item {
+      padding: 0.5rem 0;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1rem;
+      align-items: start;
+      justify-content: space-between;
+      border-top: 1px solid;
+
+      &:last-child {
+        border-bottom: 1px solid;
+      }
     }
   }
 }
@@ -192,6 +191,77 @@
       text-transform: uppercase;
     }
 
+    .list-item {
+      display: flex;
+      gap: 1rem;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      .list-item-time {
+        align-self: flex-end;
+      }
+
+      .list-time-end {
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+#CVLayout4 {
+  grid-template-columns: 1fr 2fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas:
+    "aside header"
+    "aside experience"
+    "aside education"
+    "footer footer";
+  gap: 0.5rem;
+  padding: 0.5rem;
+
+  header,
+  main,
+  aside,
+  footer {
+    padding: 1rem;
+  }
+  header {
+    grid-area: header;
+
+    .description {
+      max-width: 60ch;
+    }
+  }
+  aside {
+    grid-area: aside;
+  }
+  main {
+    background-color: rgba($color: #000000, $alpha: 0.1);
+  }
+  .experience {
+    grid-area: experience;
+  }
+  .education {
+    grid-area: education;
+  }
+  footer {
+    grid-area: footer;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .name {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    font-weight: bolder;
+    line-height: 2rem;
+    text-transform: uppercase;
+  }
+
+  .list {
     .list-item {
       display: flex;
       gap: 1rem;

@@ -2,7 +2,7 @@ import ListRenderer from "./ListRenderer.jsx"
 export default function CVLayout1(props) {
 
   return (
-    <div id="CVLayout1" className="layout" >
+    <div id="CVLayout1" className="layout"  style={{'--accentColor': props.settings.accentColor}}>
       <header
         style={{
           backgroundColor: props.settings.mainColor,
@@ -11,8 +11,8 @@ export default function CVLayout1(props) {
         }}
       >
         <h1 className="name">
-          {props.dataPersonal.title && props.dataPersonal.title}
-          {props.dataPersonal.firstName && props.dataPersonal.firstName}
+          {props.dataPersonal.title && props.dataPersonal.title}&nbsp;
+          {props.dataPersonal.firstName && props.dataPersonal.firstName}&nbsp;
           {props.dataPersonal.lastName && props.dataPersonal.lastName}
         </h1>
         <p>{props.dataPersonal.description}</p>
