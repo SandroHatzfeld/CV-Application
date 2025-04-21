@@ -46,16 +46,15 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
 
-
     .footer-container {
       // display: flex;
     }
   }
-  
+
   .list {
     padding: 1rem;
     background-color: rgba($color: #000000, $alpha: 0.3);
-    
+
     &:not(:last-child) {
       margin-bottom: 1rem;
     }
@@ -69,7 +68,7 @@
     align-items: start;
     justify-content: space-between;
     border-top: 1px solid;
-    
+
     &:last-child {
       border-bottom: 1px solid;
     }
@@ -79,19 +78,55 @@
 #CVLayout2 {
   grid-template-columns: auto 1fr;
 
-  header,
-  main {
-    padding: 3rem 1rem;
-  }
-
   header {
+    padding: 3rem 1rem;
     text-align: center;
   }
+  main {
+    padding: 3rem 3rem 3rem 1rem;
+  }
   .name {
+    margin-bottom: 2rem;
     font-size: 2rem;
     font-weight: bolder;
     line-height: 2rem;
     text-transform: uppercase;
+  }
+
+  .list {
+    position: relative;
+    padding-left: 1rem;
+    &:not(:last-child) {
+      margin-bottom: 1rem;
+    }
     
+    &::before {
+      position: absolute;
+      content: "";
+      height: 100%;
+      width: 1rem;
+      left: -1rem;
+      border-radius: 0 0.5rem 0.5rem 0;
+      background-color: #000000;
+    }
+
+    .list-item {
+      display: flex;
+      gap: 1rem;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      &:not(:last-child) {
+        margin-bottom: 1rem;
+      }
+
+      .list-item-time {
+        align-self: flex-end;
+      }
+
+      .list-time-end {
+        font-weight: bold;
+      }
+    }
   }
 }

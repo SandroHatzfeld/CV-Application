@@ -13,9 +13,9 @@ export default function ListRenderer(props) {
               style={{ fontFamily: props.settings.paragraphFont }}
             >
               <div className="list-item-time">
-                {new Date(item.start).toLocaleDateString()}
+                <span className='list-time-start'>{new Date(item.start).toLocaleDateString()}</span>
                 <br />
-                {new Date(item.end).toLocaleDateString()}
+                <span className='list-time-end'>{new Date(item.end).toLocaleDateString()}</span>
               </div>
               <div className="list-item-content">
                 <h3>

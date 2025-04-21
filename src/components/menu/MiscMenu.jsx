@@ -6,7 +6,7 @@ import {
   defaultPersonal,
   defaultCustomiztion,
   defaultLayoutSetting,
-} from "../settings/defaultData.jsx"
+} from "../../../defaultData.jsx"
 
 export default function MiscMenu({
   setItemsPersonal,

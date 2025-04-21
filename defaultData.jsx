@@ -41,12 +41,12 @@ const defaultBusiness = [
   },
 ]
 const defaultCustomiztion = {
-  mainColor: "#f9f6b6",
+  mainColor: "#8dce44",
   mainTextColor: "#1f1f1f",
-  accentColor: "#2fc07a",
-  textColor: "#eeeeee",
-  backgroundColor: "#3b3b3b",
-  footerColor: "#b82f2f",
+  accentColor: "#cf2345",
+  textColor: "#1a1a1a",
+  backgroundColor: "#eeeeee",
+  footerColor: "#15961b",
   footerTextColor: "#ffffff",
   headerFont: "Arial",
   headlineFont: "Arial",

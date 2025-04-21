@@ -2,7 +2,7 @@ import { useState } from "react"
 import MiscMenu from "./components/menu/MiscMenu.jsx"
 import CVRenderer from "./components/rendering/CVRenderer.jsx"
 import Menu from "./components/menu/Menu.jsx"
-import { defaultCustomiztion, defaultLayoutSetting } from './components/settings/defaultData.jsx'
+import { defaultCustomiztion, defaultLayoutSetting } from '../defaultData.jsx'
 
 export default function App() {
   const [itemsPersonal, setItemsPersonal] = useState({})
