@@ -20,6 +20,7 @@ const defaultEducation = [
     location: "Stanford, CA",
     start: "2003-09-01",
     end: "2005-06-15",
+    currentPlace:false,
   },
   {
     id: crypto.randomUUID(),
@@ -28,6 +29,7 @@ const defaultEducation = [
     location: "Pasadena, CA",
     start: "1998-09-01",
     end: "2002-06-15",
+    currentPlace:false,
   },
   {
     id: crypto.randomUUID(),
@@ -36,6 +38,7 @@ const defaultEducation = [
     location: "San Diego, CA",
     start: "1994-09-01",
     end: "1998-06-15",
+    currentPlace:false,
   },
   
   
@@ -49,7 +52,8 @@ const defaultBusiness = [
     description: "Architected cloud infrastructure for clients and developed DevOps pipelines.",
     location: "Remote",
     start: "2017-04-01",
-    end: "Present",
+    end: "",
+    currentPlace:true,
   },
   
   {
@@ -60,6 +64,7 @@ const defaultBusiness = [
     location: "San Diego, CA",
     start: "2010-08-15",
     end: "2017-03-30",
+    currentPlace:false,
   },
   {
     id: crypto.randomUUID(),
@@ -69,6 +74,7 @@ const defaultBusiness = [
     location: "Los Angeles, CA",
     start: "2005-08-01",
     end: "2010-07-31",
+    currentPlace:false,
   },
 ]
 

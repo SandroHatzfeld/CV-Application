@@ -3,6 +3,7 @@ import DndContextWrapper from "./DndContextWrapper.jsx"
 import InputElement from "./inputs/InputElement.jsx"
 import InputFormEntry from "./inputs/InputFormEntry.jsx"
 import { arrayMove } from "@dnd-kit/sortable"
+import InputCheckbox from './inputs/InputCheckbox.jsx'
 
 export default function MenuEducation({items, setItems}) {
   const [inputVisible, setInputVisible] = useState(false)
@@ -26,6 +27,7 @@ export default function MenuEducation({items, setItems}) {
   const handleSubmit = (event) => {
     event.preventDefault()
 
+
     if(currentlyEditing) {
       const editedItem = {
         id: filledValues.id,
@@ -34,6 +36,7 @@ export default function MenuEducation({items, setItems}) {
         location: event.target.location.value,
         start: event.target.start.value,
         end: event.target.end.value,
+        currentPlace: event.target.currentPlace.value
       }
 
       const changedItems = items.map((item) => {
@@ -56,6 +59,7 @@ export default function MenuEducation({items, setItems}) {
         location: event.target.location.value,
         start: event.target.start.value,
         end: event.target.end.value,
+        currentPlace: event.target.currentPlace.value
       }
   
       setItems((items) => [...items, newItem])
@@ -72,6 +76,7 @@ export default function MenuEducation({items, setItems}) {
       location: items[itemIndex].location,
       start: items[itemIndex].start,
       end: items[itemIndex].end,
+      currentPlace: items[itemIndex].currentPlace
     })
     setInputVisible(true)
     setCurrentlyEditing(true)
@@ -126,6 +131,7 @@ export default function MenuEducation({items, setItems}) {
           <InputElement labelText="End" type="date" name="end" 
           value={filledValues.end}/>
         </div>
+        <InputCheckbox labelText='This is my current school' name='currentPlace'/>
       </InputFormEntry>
     </>
   )

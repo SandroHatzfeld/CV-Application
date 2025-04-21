@@ -35,6 +35,7 @@ export default function MenuExperience({ items, setItems }) {
         description: event.target.description.value,
         start: event.target.start.value,
         end: event.target.end.value,
+        currentPlace: event.target.currentPlace.value
       }
 
       const changedItems = items.map((item) => {
@@ -57,6 +58,7 @@ export default function MenuExperience({ items, setItems }) {
         description: event.target.description.value,
         start: event.target.start.value,
         end: event.target.end.value,
+        currentPlace: event.target.currentPlace.value
       }
 
       setItems((items) => [...items, newItem])
@@ -74,6 +76,7 @@ export default function MenuExperience({ items, setItems }) {
       description: items[itemIndex].description,
       start: items[itemIndex].start,
       end: items[itemIndex].end,
+      currentPlace: items[itemIndex].currentPlace
     })
     setInputVisible(true)
     setCurrentlyEditing(true)
@@ -151,6 +154,8 @@ export default function MenuExperience({ items, setItems }) {
             value={filledValues.end}
           />
         </div>
+        <InputCheckbox labelText='This is my current workplace' name='currentPlace'/>
+        
       </InputFormEntry>
     </>
   )

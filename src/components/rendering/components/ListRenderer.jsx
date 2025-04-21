@@ -15,7 +15,8 @@ export default function ListRenderer(props) {
               <div className="list-item-time">
                 <span className='list-time-start'>{new Date(item.start).toLocaleDateString()}</span>
                 <br />
-                <span className='list-time-end'>{new Date(item.end).toLocaleDateString()}</span>
+                
+                <span className='list-time-end'>{item.currentPlace ? 'Present' : new Date(item.end).toLocaleDateString()}</span>
               </div>
               <div className="list-item-content">
                 <h3>
