@@ -25,15 +25,15 @@ export default function CVLayout1(props) {
         }}
       >
         <ListRenderer
-          items={props.itemsEducation}
-          title="Education"
-          itemDescription="Degree"
-          {...props}
-        />
-        <ListRenderer
           items={props.itemsBusiness}
           title="Experience"
           itemDescription="Position"
+          {...props}
+        />
+        <ListRenderer
+          items={props.itemsEducation}
+          title="Education"
+          itemDescription="Degree"
           {...props}
         />
       </main>

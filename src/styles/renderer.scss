@@ -26,6 +26,10 @@
   }
 }
 
+.list-time-end {
+  font-weight: bold;
+}
+
 .layout {
   height: 100%;
   width: 100%;
@@ -50,13 +54,12 @@
   .list {
     padding: 0.65rem 1rem 1rem 1rem;
 
-    background-color: rgba($color: #000000 , $alpha: 0.05);
+    background-color: rgba($color: #000000, $alpha: 0.05);
     border-left: 1rem solid var(--accentColor);
 
     &:not(:last-child) {
       margin-bottom: 1rem;
     }
-
 
     .list-item {
       padding: 0.5rem 0;
@@ -94,9 +97,10 @@
 
   .list {
     position: relative;
-    padding-left: 1rem;
+    padding: 1rem;
+
     &:not(:last-child) {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
     }
 
     &::before {
@@ -105,6 +109,7 @@
       height: 100%;
       width: 1rem;
       left: -1rem;
+      top: 0;
       border-radius: 0 0.5rem 0.5rem 0;
       background-color: var(--accentColor);
     }
@@ -121,10 +126,6 @@
 
       .list-item-time {
         align-self: flex-end;
-      }
-
-      .list-time-end {
-        font-weight: bold;
       }
     }
   }
@@ -200,14 +201,6 @@
       &:not(:last-child) {
         margin-bottom: 1rem;
       }
-
-      .list-item-time {
-        align-self: flex-end;
-      }
-
-      .list-time-end {
-        font-weight: bold;
-      }
     }
   }
 }
@@ -274,10 +267,6 @@
 
       .list-item-time {
         align-self: flex-end;
-      }
-
-      .list-time-end {
-        font-weight: bold;
       }
     }
   }
