@@ -148,7 +148,7 @@
   header {
     grid-area: header;
     margin-top: 2em;
-    padding: 1.5em;
+    padding: 0.75em 1.5em 1.5em 1.5em;
     z-index: 100;
 
     .description {
@@ -171,7 +171,6 @@
     padding: 1em;
   }
   .name {
-    margin-bottom: 0.5em;
     font-size: 2em;
     font-weight: bolder;
     line-height: 2em;
@@ -191,7 +190,7 @@
     h2 {
       height: 0;
       width: fit-content;
-      transform: rotate(-90deg) translate(-100%, -2.5em);
+      transform: rotate(-90deg) translate(-100%, -1.75em);
       transform-origin: left bottom;
       text-transform: uppercase;
     }
@@ -211,7 +210,7 @@
 
 #CVLayout4 {
   grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
   grid-template-areas:
     "aside header"
     "aside experience"
