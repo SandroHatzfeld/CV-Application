@@ -1,8 +1,12 @@
 import ListRenderer from "./ListRenderer.jsx"
-export default function CVLayout1(props) {
 
+export default function CVLayout1(props) {
   return (
-    <div id="CVLayout1" className="layout"  style={{'--accentColor': props.settings.accentColor}}>
+    <div
+      id="CVLayout1"
+      className="layout"
+      style={{ "--accentColor": props.settings.accentColor }}
+    >
       <header
         style={{
           backgroundColor: props.settings.mainColor,

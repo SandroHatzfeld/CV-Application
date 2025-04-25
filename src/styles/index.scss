@@ -206,9 +206,11 @@ button {
   grid-template-columns: auto 1fr auto auto;
   cursor: pointer;
   align-items: center;
+  margin-bottom: 0.75rem;
 
   h1 {
     margin: 0;
+    line-height: 1.75rem;
 
     &::after {
       display: none;
@@ -226,19 +228,6 @@ button {
   justify-self: flex-end;
   border: none;
   background-color: transparent;
-}
-
-.move-item {
-  background-size: contain;
-  background-image: url("./assets/icons/edit_move.svg");
-}
-
-.edit-item {
-  background-image: url("./assets/icons/edit_pen.svg");
-}
-
-.remove-item {
-  background-image: url("./assets/icons/close.svg");
 }
 
 .input-color label {

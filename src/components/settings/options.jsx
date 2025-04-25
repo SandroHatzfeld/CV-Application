@@ -1,3 +1,9 @@
+import topheavy from "../../assets/layouts/topheavy.svg"
+import sidebar from "../../assets/layouts/sidebar.svg"
+import floating from "../../assets/layouts/floating.svg"
+import boxes from "../../assets/layouts/boxes.svg"
+
+
 const colorOptions = [
   {
     displayName: "Main Color",
@@ -42,19 +48,19 @@ const fontOptions = {
 const layoutOptions = [
   {
     name: "Topheavy",
-    image: "./assets/layouts/topheavy.svg",
+    image: topheavy,
   },
   {
     name: "Sidebar",
-    image: "./assets/layouts/sidebar.svg",
+    image: sidebar,
   },
   {
     name: "Floating",
-    image: "./assets/layouts/floating.svg",
+    image: floating,
   },
   {
     name: "Boxes",
-    image: "./assets/layouts/boxes.svg",
+    image: boxes,
   },
 ]
 

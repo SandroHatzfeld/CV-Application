@@ -16,7 +16,7 @@ export default function InputCheckbox({
           type="checkbox"
           name={name}
           required={required}
-          defaultValue={value}
+          defaultChecked={value}
         ></input>
       </label>
     </div>

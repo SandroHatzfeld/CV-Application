@@ -1,6 +1,8 @@
+import checkmarkImg from '../../../assets/icons/checkmark.svg'
+
 export default function InputButton({
     inputText = "Save",
-    icon = "./assets/icons/checkmark.svg",
+    icon = checkmarkImg,
     onClick,
     color = 'var(--textcolor-dark)',
     bgColor = 'var(--textcolor-light)',

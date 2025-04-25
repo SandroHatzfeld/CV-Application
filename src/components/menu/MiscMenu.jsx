@@ -7,6 +7,9 @@ import {
   defaultCustomiztion,
   defaultLayoutSetting,
 } from "../../../defaultData.jsx"
+import trashImg from "../../assets/icons/trash.svg"
+import databaseImg from "../../assets/icons/database.svg"
+import printerImg from "../../assets/icons/printer.svg"
 
 export default function MiscMenu({
   setItemsPersonal,
@@ -57,17 +60,17 @@ export default function MiscMenu({
   return (
     <div className="misc-menu-wrapper">
       <InputButton
-        icon="./assets/icons/trash.svg"
+        icon={trashImg}
         inputText="Clear all data"
         onClick={removeAllData}
       />
       <InputButton
-        icon="./assets/icons/database.svg"
+        icon={databaseImg}
         inputText="Fill with example data"
         onClick={setDefaultData}
       />
       <InputButton
-        icon="./assets/icons/printer.svg"
+        icon={printerImg}
         inputText="Export for printing"
         onClick={printCV}
       />

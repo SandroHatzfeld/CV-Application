@@ -3,6 +3,7 @@ import DndContextWrapper from "./DndContextWrapper.jsx"
 import { arrayMove } from "@dnd-kit/sortable"
 import InputElement from "./inputs/InputElement.jsx"
 import InputFormEntry from "./inputs/InputFormEntry.jsx"
+import InputCheckbox from './inputs/InputCheckbox.jsx'
 
 export default function MenuExperience({ items, setItems }) {
   const [inputVisible, setInputVisible] = useState(false)
@@ -154,7 +155,7 @@ export default function MenuExperience({ items, setItems }) {
             value={filledValues.end}
           />
         </div>
-        <InputCheckbox labelText='This is my current workplace' name='currentPlace'/>
+        <InputCheckbox labelText='This is my current workplace' name='currentPlace' value={filledValues.currentPlace}/>
         
       </InputFormEntry>
     </>

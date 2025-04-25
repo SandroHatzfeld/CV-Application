@@ -8,6 +8,7 @@ import {
 } from "../settings/options.jsx"
 import { defaultCustomiztion } from "../../../defaultData.jsx"
 
+
 export default function MenuCustomize({
   settings,
   setSettings,

@@ -1,4 +1,5 @@
 import InputButton from "./InputButton.jsx"
+import addBtnImg from '../../../assets/icons/add.svg'
 
 export default function InputFormEntry(props) {
 	
@@ -10,6 +11,6 @@ export default function InputFormEntry(props) {
 			</form>
 		)
 	} else {
-		return <InputButton  onClick={props.toggleInputVisible} inputText='Add an entry' icon='./assets/icons/add.svg' />
+		return <InputButton  onClick={props.toggleInputVisible} inputText='Add an entry' icon={addBtnImg} />
 	}
 }

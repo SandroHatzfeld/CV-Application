@@ -3,9 +3,9 @@ import DndContextWrapper from "./DndContextWrapper.jsx"
 import InputElement from "./inputs/InputElement.jsx"
 import InputFormEntry from "./inputs/InputFormEntry.jsx"
 import { arrayMove } from "@dnd-kit/sortable"
-import InputCheckbox from './inputs/InputCheckbox.jsx'
+import InputCheckbox from "./inputs/InputCheckbox.jsx"
 
-export default function MenuEducation({items, setItems}) {
+export default function MenuEducation({ items, setItems }) {
   const [inputVisible, setInputVisible] = useState(false)
   const [filledValues, setFilledValues] = useState({})
   const [currentlyEditing, setCurrentlyEditing] = useState(false)
@@ -27,8 +27,7 @@ export default function MenuEducation({items, setItems}) {
   const handleSubmit = (event) => {
     event.preventDefault()
 
-
-    if(currentlyEditing) {
+    if (currentlyEditing) {
       const editedItem = {
         id: filledValues.id,
         name: event.target.name.value,
@@ -36,18 +35,17 @@ export default function MenuEducation({items, setItems}) {
         location: event.target.location.value,
         start: event.target.start.value,
         end: event.target.end.value,
-        currentPlace: event.target.currentPlace.value
+        currentPlace: event.target.currentPlace.value,
       }
 
       const changedItems = items.map((item) => {
-        if(item.id === editedItem.id) {
+        if (item.id === editedItem.id) {
           return editedItem
         } else {
           return item
         }
       })
-      
-      
+
       setItems(changedItems)
       setCurrentlyEditing(false)
       setFilledValues({})
@@ -59,9 +57,9 @@ export default function MenuEducation({items, setItems}) {
         location: event.target.location.value,
         start: event.target.start.value,
         end: event.target.end.value,
-        currentPlace: event.target.currentPlace.value
+        currentPlace: event.target.currentPlace.value,
       }
-  
+
       setItems((items) => [...items, newItem])
     }
   }
@@ -76,7 +74,7 @@ export default function MenuEducation({items, setItems}) {
       location: items[itemIndex].location,
       start: items[itemIndex].start,
       end: items[itemIndex].end,
-      currentPlace: items[itemIndex].currentPlace
+      currentPlace: items[itemIndex].currentPlace,
     })
     setInputVisible(true)
     setCurrentlyEditing(true)
@@ -120,18 +118,41 @@ export default function MenuEducation({items, setItems}) {
           value={filledValues.name}
         />
         <div className="input-row">
-          <InputElement labelText="Degree" name="description" 
-          value={filledValues.description}/>
-          <InputElement labelText="Location" name="location" required={true} 
-          value={filledValues.location}/>
+          <InputElement
+            labelText="Degree"
+            name="description"
+            value={filledValues.description}
+          />
+          <InputElement
+            labelText="Location"
+            name="location"
+            required={true}
+            value={filledValues.location}
+          />
         </div>
         <div className="input-row">
-          <InputElement labelText="Start" type="date" name="start" 
-          value={filledValues.start}/>
-          <InputElement labelText="End" type="date" name="end" 
-          value={filledValues.end}/>
+          <InputElement
+            labelText="Start"
+            type="date"
+            name="start"
+            value={filledValues.start}
+          />
+          {filledValues.currentPlace ? (
+            <></>
+          ) : (
+            <InputElement
+              labelText="End"
+              type="date"
+              name="end"
+              value={filledValues.end}
+            />
+          )}
         </div>
-        <InputCheckbox labelText='This is my current school' name='currentPlace'/>
+        <InputCheckbox
+          labelText="This is my current school"
+          name="currentPlace"
+          value={filledValues.currentPlace}
+        />
       </InputFormEntry>
     </>
   )
