@@ -28,7 +28,7 @@ export default function CVRenderer(props) {
   return (
     <>
       <div className="renderer-wrapper">
-        <div className="renderer display" id="cv">
+        <div className="renderer" id="cv">
           {component}
         </div>
       </div>

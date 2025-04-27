@@ -6,9 +6,10 @@ export default function InputButton({
     onClick,
     color = 'var(--textcolor-dark)',
     bgColor = 'var(--textcolor-light)',
+    classes 
 }) {
     return (
-        <button onClick={onClick} className="input-element-container" style={{color: color, backgroundColor: bgColor}}>
+        <button onClick={onClick} className={`input-element-container ${classes}`} style={{color: color, backgroundColor: bgColor}}>
             <img src={icon} />
             <span >{inputText}</span>
         </button>
