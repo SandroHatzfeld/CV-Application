@@ -11,7 +11,7 @@ export default function CVLayout1(props) {
         style={{
           backgroundColor: props.settings.mainColor,
           color: props.settings.mainTextColor,
-          // fontFamily: props.settings.headerFont,
+          fontFamily: props.settings.headerFont,
         }}
       >
         <h1 className="name">
@@ -25,7 +25,7 @@ export default function CVLayout1(props) {
         style={{
           color: props.settings.textColor,
           backgroundColor: props.settings.backgroundColor,
-          // fontFamily: props.settings.paragraphFont,
+          fontFamily: props.settings.paragraphFont,
         }}
       >
         <ListRenderer
@@ -45,7 +45,7 @@ export default function CVLayout1(props) {
         style={{
           color: props.settings.footerTextColor,
           backgroundColor: props.settings.footerColor,
-          // fontFamily: props.settings.footerFont,
+          fontFamily: props.settings.footerFont,
         }}
       >
         {props.dataPersonal.street ||
