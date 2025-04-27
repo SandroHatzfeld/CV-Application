@@ -3,7 +3,6 @@ import sidebar from "../../assets/layouts/sidebar.svg"
 import floating from "../../assets/layouts/floating.svg"
 import boxes from "../../assets/layouts/boxes.svg"
 
-
 const colorOptions = [
   {
     displayName: "Main Color",
@@ -35,6 +34,7 @@ const colorOptions = [
     name: "footerTextColor",
   },
 ]
+
 const fontOptions = {
   areas: [
     { displayName: "Header", name: "headerFont" },
@@ -42,7 +42,14 @@ const fontOptions = {
     { displayName: "Paragraphs", name: "paragraphFont" },
     { displayName: "Footer", name: "footerFont" },
   ],
-  options: ["Arial", "Times New Roman","Great Vibes","Josefin","Roboto","Oswald"],
+  options: [
+    "Arial",
+    "Times New Roman",
+    "Great Vibes",
+    "Josefin",
+    "Roboto",
+    "Oswald",
+  ],
 }
 
 const layoutOptions = [

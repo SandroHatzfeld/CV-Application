@@ -1,0 +1,45 @@
+@font-face {
+	font-family: "Great Vibes", cursive;
+	src: local("Great Vibes"), url("./assets/fonts/GreatVibes-Regular.ttf") format("truetype");
+	font-weight: 400;
+  font-style: normal;
+}
+@font-face {
+	font-family: "Josefin", sans-serif;
+	src: local("Josefin"), url("./assets/fonts/JosefinSans-VariableFont_wght.ttf") format("truetype");
+	font-weight: 400;
+	font-optical-sizing: auto;
+  font-style: normal;
+}
+@font-face {
+	font-family: "Oswald", sans-serif;
+	src: local("Oswald"), url("./assets/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
+	font-weight: 400;
+}
+@font-face {
+	font-family: "Roboto", sans-serif;
+	src: local("Roboto"), url("./assets/fonts/Roboto-VariableFont_wdth_wght.ttf") format("truetype");
+	font-optical-sizing: auto;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
+
+.arial {
+  font-family: Arial, Helvetica, sans-serif;
+}
+.times-new-roman {
+  font-family: 'Times New Roman', Times, serif;
+}
+.great-vibes {
+  font-family: "Great Vibes", cursive;
+}
+.josefin {
+  font-family: "Josefin", sans-serif;
+}
+.oswald {
+  font-family: "Oswald", sans-serif;
+}
+.roboto {
+  font-family: "Roboto", sans-serif;
+}
