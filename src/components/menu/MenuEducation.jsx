@@ -4,10 +4,11 @@ import InputElement from "./inputs/InputElement.jsx"
 import InputFormEntry from "./inputs/InputFormEntry.jsx"
 import { arrayMove } from "@dnd-kit/sortable"
 import InputCheckbox from "./inputs/InputCheckbox.jsx"
+import { useImmer } from 'use-immer'
 
 export default function MenuEducation({ items, setItems }) {
   const [inputVisible, setInputVisible] = useState(false)
-  const [filledValues, setFilledValues] = useState({})
+  const [filledValues, setFilledValues] = useImmer({})
   const [currentlyEditing, setCurrentlyEditing] = useState(false)
 
   function handleDragEnd(event) {
@@ -67,18 +68,25 @@ export default function MenuEducation({ items, setItems }) {
   const handleEditItem = (id) => {
     const itemIndex = items.findIndex((item) => item.id === id)
 
-    setFilledValues({
-      id: items[itemIndex].id,
-      name: items[itemIndex].name,
-      description: items[itemIndex].description,
-      location: items[itemIndex].location,
-      start: items[itemIndex].start,
-      end: items[itemIndex].end,
-      currentPlace: items[itemIndex].currentPlace,
+    setFilledValues(draft => {
+      draft.id = items[itemIndex].id
+      draft.name = items[itemIndex].name
+      draft.description = items[itemIndex].description
+      draft.location = items[itemIndex].location
+      draft.start = items[itemIndex].start
+      draft.end = items[itemIndex].end
+      draft.currentPlace = items[itemIndex].currentPlace
     })
 
     setInputVisible(true)
     setCurrentlyEditing(true)
+  }
+
+  // make inputs a controlled input
+  const handleChange = (event, name) => {   
+    setFilledValues(draft =>  {
+      draft[name] = event
+    })
   }
 
   // remove items based on their index and update the useState
@@ -117,18 +125,21 @@ export default function MenuEducation({ items, setItems }) {
           name="name"
           required={true}
           value={filledValues.name}
+          handleChange={handleChange}
         />
         <div className="input-row">
           <InputElement
             labelText="Degree"
             name="description"
             value={filledValues.description}
+            handleChange={handleChange}
           />
           <InputElement
             labelText="Location"
             name="location"
             required={true}
             value={filledValues.location}
+            handleChange={handleChange}
           />
         </div>
         <div className="input-row">
@@ -137,18 +148,21 @@ export default function MenuEducation({ items, setItems }) {
             type="date"
             name="start"
             value={filledValues.start}
+            handleChange={handleChange}
           />
           <InputElement
             labelText="End"
             type="date"
             name="end"
             value={filledValues.end}
+            handleChange={handleChange}
           />
         </div>
         <InputCheckbox
           labelText="This is my current school"
           name="currentPlace"
           value={filledValues.currentPlace}
+          handleChange={handleChange}
         />
       </InputFormEntry>
     </>

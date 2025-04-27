@@ -5,6 +5,7 @@ export default function InputElement({
   name = "",
   required = false,
   value = "",
+  handleChange,
 }) {
   if (type === "textarea") {
     return (
@@ -14,7 +15,8 @@ export default function InputElement({
           <textarea
             name={name}
             required={required}
-            defaultValue={value}
+            value={value}
+            onChange={e => handleChange(e.target.value, name)}
           ></textarea>
         </label>
       </div>
@@ -28,7 +30,8 @@ export default function InputElement({
           type={type}
           name={name}
           required={required}
-          defaultValue={value}
+          value={value}
+          onChange={e => handleChange(e.target.value, name)}
         ></input>
       </label>
     </div>

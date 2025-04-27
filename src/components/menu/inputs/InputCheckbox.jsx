@@ -12,11 +12,11 @@ export default function InputCheckbox({
       <label>
         <div>{labelText}</div>
         <input
-          onChange={handleChange}
           type="checkbox"
           name={name}
           required={required}
-          defaultChecked={value}
+          checked={value}
+          onChange={e => handleChange(e.target.checked, name)}
         ></input>
       </label>
     </div>
