@@ -26,6 +26,7 @@ function isInteractiveElement(element) {
     'textarea',
     'select',
     'option',
+    'img'
   ];
 
   if (interactiveElements.includes(element.tagName.toLowerCase())) {

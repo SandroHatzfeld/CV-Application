@@ -76,6 +76,7 @@ export default function MenuEducation({ items, setItems }) {
       end: items[itemIndex].end,
       currentPlace: items[itemIndex].currentPlace,
     })
+
     setInputVisible(true)
     setCurrentlyEditing(true)
   }
@@ -137,16 +138,12 @@ export default function MenuEducation({ items, setItems }) {
             name="start"
             value={filledValues.start}
           />
-          {filledValues.currentPlace ? (
-            <></>
-          ) : (
-            <InputElement
-              labelText="End"
-              type="date"
-              name="end"
-              value={filledValues.end}
-            />
-          )}
+          <InputElement
+            labelText="End"
+            type="date"
+            name="end"
+            value={filledValues.end}
+          />
         </div>
         <InputCheckbox
           labelText="This is my current school"
@@ -157,3 +154,4 @@ export default function MenuEducation({ items, setItems }) {
     </>
   )
 }
+
