@@ -1,10 +1,9 @@
 export default function InputCheckbox({
-    
     labelText = "Input",
     width = "form-width-100",
     name = "",
     required = false,
-    value = "",
+    value = false,
     handleChange,
 }) {
   return (

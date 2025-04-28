@@ -4,15 +4,15 @@ import { arrayMove } from "@dnd-kit/sortable"
 import InputElement from "./inputs/InputElement.jsx"
 import InputFormEntry from "./inputs/InputFormEntry.jsx"
 import InputCheckbox from "./inputs/InputCheckbox.jsx"
-import { useImmer } from 'use-immer'
+import { useImmer } from "use-immer"
 
 export default function MenuExperience({ items, setItems }) {
   const [inputVisible, setInputVisible] = useState(false)
   const [filledValues, setFilledValues] = useImmer({})
   const [currentlyEditing, setCurrentlyEditing] = useState(false)
 
-  function handleDragEnd(event) {
-    const { active, over } = event
+  function handleDragEnd(e) {
+    const { active, over } = e
 
     if (active.id !== over.id) {
       setItems((items) => {
@@ -25,19 +25,19 @@ export default function MenuExperience({ items, setItems }) {
   }
 
   // collect the values and push them to the array
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault()
 
     if (currentlyEditing) {
       const editedItem = {
         id: filledValues.id,
-        name: event.target.name.value,
-        position: event.target.position.value,
-        location: event.target.location.value,
-        description: event.target.description.value,
-        start: event.target.start.value,
-        end: event.target.end.value,
-        currentPlace: event.target.currentPlace.value,
+        name: e.target.name.value,
+        position: e.target.position.value,
+        location: e.target.location.value,
+        description: e.target.description.value,
+        start: e.target.start.value,
+        end: e.target.end.value,
+        currentPlace: e.target.currentPlace.checked,
       }
 
       const changedItems = items.map((item) => {
@@ -54,14 +54,15 @@ export default function MenuExperience({ items, setItems }) {
     } else {
       const newItem = {
         id: crypto.randomUUID(),
-        name: event.target.name.value,
-        position: event.target.position.value,
-        location: event.target.location.value,
-        description: event.target.description.value,
-        start: event.target.start.value,
-        end: event.target.end.value,
-        currentPlace: event.target.currentPlace.value,
+        name: e.target.name.value,
+        position: e.target.position.value,
+        location: e.target.location.value,
+        description: e.target.description.value,
+        start: e.target.start.value,
+        end: e.target.end.value,
+        currentPlace: e.target.currentPlace.checked,
       }
+    
 
       setItems((items) => [...items, newItem])
     }
@@ -70,7 +71,7 @@ export default function MenuExperience({ items, setItems }) {
   const handleEditItem = (id) => {
     const itemIndex = items.findIndex((item) => item.id === id)
 
-    setFilledValues(draft => {
+    setFilledValues((draft) => {
       draft.id = items[itemIndex].id
       draft.name = items[itemIndex].name
       draft.position = items[itemIndex].position
@@ -85,11 +86,9 @@ export default function MenuExperience({ items, setItems }) {
   }
 
   // make inputs a controlled input
-  const handleChange = (event, name) => {
-    console.log(event, name);
-    
-    setFilledValues(draft => {
-      draft[name] = event
+  const handleChange = (e, name) => {
+    setFilledValues((draft) => {
+      draft[name] = e
     })
   }
 
@@ -104,8 +103,8 @@ export default function MenuExperience({ items, setItems }) {
   }
 
   // submit and toggle input field after
-  const toggleInputAndSubmit = (event) => {
-    handleSubmit(event)
+  const toggleInputAndSubmit = (e) => {
+    handleSubmit(e)
     setInputVisible((inputVisible) => !inputVisible)
   }
 
@@ -160,6 +159,7 @@ export default function MenuExperience({ items, setItems }) {
             labelText="Start"
             type="date"
             name="start"
+            required={true}
             value={filledValues.start}
             handleChange={handleChange}
           />
@@ -167,6 +167,7 @@ export default function MenuExperience({ items, setItems }) {
             labelText="End"
             type="date"
             name="end"
+            required={true}
             value={filledValues.end}
             handleChange={handleChange}
           />

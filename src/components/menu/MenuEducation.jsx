@@ -36,7 +36,7 @@ export default function MenuEducation({ items, setItems }) {
         location: event.target.location.value,
         start: event.target.start.value,
         end: event.target.end.value,
-        currentPlace: event.target.currentPlace.value,
+        currentPlace: event.target.currentPlace.checked,
       }
 
       const changedItems = items.map((item) => {
@@ -58,7 +58,7 @@ export default function MenuEducation({ items, setItems }) {
         location: event.target.location.value,
         start: event.target.start.value,
         end: event.target.end.value,
-        currentPlace: event.target.currentPlace.value,
+        currentPlace: event.target.currentPlace.checked,
       }
 
       setItems((items) => [...items, newItem])
@@ -147,6 +147,7 @@ export default function MenuEducation({ items, setItems }) {
             labelText="Start"
             type="date"
             name="start"
+            required={true}
             value={filledValues.start}
             handleChange={handleChange}
           />
@@ -154,6 +155,7 @@ export default function MenuEducation({ items, setItems }) {
             labelText="End"
             type="date"
             name="end"
+            required={true}
             value={filledValues.end}
             handleChange={handleChange}
           />
