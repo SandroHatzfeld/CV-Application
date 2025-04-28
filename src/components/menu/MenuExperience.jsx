@@ -28,6 +28,7 @@ export default function MenuExperience({ items, setItems }) {
   const handleSubmit = (e) => {
     e.preventDefault()
 
+
     if (currentlyEditing) {
       const editedItem = {
         id: filledValues.id,
@@ -36,7 +37,7 @@ export default function MenuExperience({ items, setItems }) {
         location: e.target.location.value,
         description: e.target.description.value,
         start: e.target.start.value,
-        end: e.target.end.value,
+        end: e.target.end ? e.target.end.value : "",
         currentPlace: e.target.currentPlace.checked,
       }
 
@@ -59,10 +60,9 @@ export default function MenuExperience({ items, setItems }) {
         location: e.target.location.value,
         description: e.target.description.value,
         start: e.target.start.value,
-        end: e.target.end.value,
+        end: e.target.end ? e.target.end.value : "",
         currentPlace: e.target.currentPlace.checked,
       }
-    
 
       setItems((items) => [...items, newItem])
     }
@@ -163,14 +163,16 @@ export default function MenuExperience({ items, setItems }) {
             value={filledValues.start}
             handleChange={handleChange}
           />
-          <InputElement
-            labelText="End"
-            type="date"
-            name="end"
-            required={true}
-            value={filledValues.end}
-            handleChange={handleChange}
-          />
+          {filledValues.currentPlace === false && (
+            <InputElement
+              labelText="End"
+              type="date"
+              name="end"
+              required={true}
+              value={filledValues.end}
+              handleChange={handleChange}
+            />
+          )}
         </div>
         <InputCheckbox
           labelText="This is my current workplace"

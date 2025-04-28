@@ -198,7 +198,8 @@ body {
 }
 
 .input-row {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
   gap: 0.5rem;
 }
 
@@ -230,19 +231,19 @@ textarea {
 }
 
 .form-width-100 {
-  width: 100%;
+  grid-column: span 6;
 }
 
 .form-width-66 {
-  width: 66%;
+  grid-column: span 4;
 }
 
 .form-width-50 {
-  width: 50%;
+  grid-column: span 3;
 }
 
 .form-width-33 {
-  width: 33%;
+  grid-column: span 2 ;
 }
 
 button {

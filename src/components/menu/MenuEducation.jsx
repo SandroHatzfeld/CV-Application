@@ -4,15 +4,15 @@ import InputElement from "./inputs/InputElement.jsx"
 import InputFormEntry from "./inputs/InputFormEntry.jsx"
 import { arrayMove } from "@dnd-kit/sortable"
 import InputCheckbox from "./inputs/InputCheckbox.jsx"
-import { useImmer } from 'use-immer'
+import { useImmer } from "use-immer"
 
 export default function MenuEducation({ items, setItems }) {
   const [inputVisible, setInputVisible] = useState(false)
   const [filledValues, setFilledValues] = useImmer({})
   const [currentlyEditing, setCurrentlyEditing] = useState(false)
 
-  function handleDragEnd(event) {
-    const { active, over } = event
+  function handleDragEnd(e) {
+    const { active, over } = e
 
     if (active.id !== over.id) {
       setItems((items) => {
@@ -25,18 +25,18 @@ export default function MenuEducation({ items, setItems }) {
   }
 
   // collect the values and push them to the array
-  const handleSubmit = (event) => {
-    event.preventDefault()
+  const handleSubmit = (e) => {
+    e.preventDefault()
 
     if (currentlyEditing) {
       const editedItem = {
         id: filledValues.id,
-        name: event.target.name.value,
-        description: event.target.description.value,
-        location: event.target.location.value,
-        start: event.target.start.value,
-        end: event.target.end.value,
-        currentPlace: event.target.currentPlace.checked,
+        name: e.target.name.value,
+        description: e.target.description.value,
+        location: e.target.location.value,
+        start: e.target.start.value,
+        end: e.target.end ? e.target.end.value : "",
+        currentPlace: e.target.currentPlace.checked,
       }
 
       const changedItems = items.map((item) => {
@@ -53,12 +53,12 @@ export default function MenuEducation({ items, setItems }) {
     } else {
       const newItem = {
         id: crypto.randomUUID(),
-        name: event.target.name.value,
-        description: event.target.description.value,
-        location: event.target.location.value,
-        start: event.target.start.value,
-        end: event.target.end.value,
-        currentPlace: event.target.currentPlace.checked,
+        name: e.target.name.value,
+        description: e.target.description.value,
+        location: e.target.location.value,
+        start: e.target.start.value,
+        end: e.target.end ? e.target.end.value : "",
+        currentPlace: e.target.currentPlace.checked,
       }
 
       setItems((items) => [...items, newItem])
@@ -68,7 +68,7 @@ export default function MenuEducation({ items, setItems }) {
   const handleEditItem = (id) => {
     const itemIndex = items.findIndex((item) => item.id === id)
 
-    setFilledValues(draft => {
+    setFilledValues((draft) => {
       draft.id = items[itemIndex].id
       draft.name = items[itemIndex].name
       draft.description = items[itemIndex].description
@@ -83,9 +83,9 @@ export default function MenuEducation({ items, setItems }) {
   }
 
   // make inputs a controlled input
-  const handleChange = (event, name) => {   
-    setFilledValues(draft =>  {
-      draft[name] = event
+  const handleChange = (e, name) => {
+    setFilledValues((draft) => {
+      draft[name] = e
     })
   }
 
@@ -100,8 +100,8 @@ export default function MenuEducation({ items, setItems }) {
   }
 
   // submit and toggle input field after
-  const toggleInputAndSubmit = (event) => {
-    handleSubmit(event)
+  const toggleInputAndSubmit = (e) => {
+    handleSubmit(e)
     setInputVisible((inputVisible) => !inputVisible)
   }
 
@@ -151,14 +151,16 @@ export default function MenuEducation({ items, setItems }) {
             value={filledValues.start}
             handleChange={handleChange}
           />
-          <InputElement
-            labelText="End"
-            type="date"
-            name="end"
-            required={true}
-            value={filledValues.end}
-            handleChange={handleChange}
-          />
+          {filledValues.currentPlace === false && (
+            <InputElement
+              labelText="End"
+              type="date"
+              name="end"
+              required={true}
+              value={filledValues.end}
+              handleChange={handleChange}
+            />
+          )}
         </div>
         <InputCheckbox
           labelText="This is my current school"
@@ -170,4 +172,3 @@ export default function MenuEducation({ items, setItems }) {
     </>
   )
 }
-
