@@ -13,7 +13,7 @@ export default function InputDropdown({
         <div>{labelText}</div>
         <select name={name} onChange={handleChange} defaultValue={selected}>
           {options.map((option) => (
-            <option style={{ fontFamily: option }} value={option} key={option}>
+            <option value={option} key={option}>
               {option}
             </option>
           ))}

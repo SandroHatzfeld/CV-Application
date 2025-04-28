@@ -44,9 +44,11 @@ const fontOptions = {
   options: [
     "Arial",
     "Times New Roman",
-    "Great Vibes",
     "Roboto",
     "Oswald",
+    "Playwrite",
+    "Borel",
+    "Arvo",
   ],
 }
 
