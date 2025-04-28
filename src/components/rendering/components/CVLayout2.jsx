@@ -6,15 +6,14 @@ export default function CVLayout2(props) {
         style={{
           backgroundColor: props.settings.mainColor,
           color: props.settings.mainTextColor,
-          fontFamily: props.settings.headerFont,
         }}
       >
-        <h1 className="name">
+        <h1 className="name" style={{fontFamily: props.settings.headlineFont}}>
           {props.dataPersonal.title && props.dataPersonal.title}&nbsp;<br />
           {props.dataPersonal.firstName && props.dataPersonal.firstName}&nbsp;<br />
           {props.dataPersonal.lastName && props.dataPersonal.lastName}
         </h1>
-        <div className="header-container">
+        <div className="header-container" style={{fontFamily: props.settings.paragraphFont}}>
           <div className="contact">
             {props.dataPersonal.eMail && (
               <>
@@ -56,7 +55,7 @@ export default function CVLayout2(props) {
       >
         {props.dataPersonal.description && (
           <div className="list">
-            <h2>Profile</h2>
+            <h2 style={{fontFamily: props.settings.headlineFont}}>Profile</h2>
             <p className="contact">{props.dataPersonal.description}</p>
           </div>
         )}

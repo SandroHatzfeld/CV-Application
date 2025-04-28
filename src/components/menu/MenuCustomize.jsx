@@ -55,7 +55,7 @@ export default function MenuCustomize({
           )
         })}
       </div>
-      {/* <div className="menu-input-container">
+      <div className="menu-input-container">
         <h1>Fonts</h1>
         {fontOptions.areas.map((area, index) => {
           return (
@@ -73,7 +73,7 @@ export default function MenuCustomize({
             />
           )
         })}
-      </div> */}
+      </div>
     </>
   )
 }

@@ -5,13 +5,7 @@
   font-style: normal;
   font-display: swap;
 }
-@font-face {
-  font-family: "Josefin Sans";
-  src: url("./assets/fonts/JosefinSans-VariableFont_wght.ttf") format("truetype");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: swap;
-}
+
 @font-face {
   font-family: "Oswald";
   src: url("./assets/fonts/Oswald-VariableFont_wght.ttf") format("truetype");
@@ -32,23 +26,4 @@
   font-weight: 100 900;
   font-style: normal;
   font-display: swap;
-}
-
-.arial {
-  font-family: Arial, Helvetica, sans-serif;
-}
-.times-new-roman {
-  font-family: 'Times New Roman', Times, serif;
-}
-.great-vibes {
-  font-family: "Great Vibes", cursive;
-}
-.josefin {
-  font-family: "Josefin Sans", sans-serif;
-}
-.oswald {
-  font-family: "Oswald", sans-serif;
-}
-.roboto {
-  font-family: "Roboto", sans-serif;
 }

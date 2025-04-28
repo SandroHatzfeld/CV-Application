@@ -11,16 +11,15 @@ export default function CVLayout3(props) {
         style={{
           backgroundColor: props.settings.mainColor,
           color: props.settings.mainTextColor,
-          fontFamily: props.settings.headerFont,
         }}
       >
-        <h1 className="name">
+        <h1 className="name" style={{fontFamily: props.settings.headlineFont}}>
           {props.dataPersonal.title && props.dataPersonal.title}&nbsp;
           {props.dataPersonal.firstName && props.dataPersonal.firstName}&nbsp;
           {props.dataPersonal.lastName && props.dataPersonal.lastName}
         </h1>
         {props.dataPersonal.description && (
-          <p className="description">{props.dataPersonal.description}</p>
+          <p className="description" style={{fontFamily: props.settings.paragraphFont}}>{props.dataPersonal.description}</p>
         )}
       </header>
       <aside style={{ backgroundColor: props.settings.accentColor, fontFamily: props.settings.footerFont}}>

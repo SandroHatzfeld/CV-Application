@@ -11,28 +11,26 @@ export default function CVLayout4(props) {
         style={{
           backgroundColor: props.settings.mainColor,
           color: props.settings.mainTextColor,
-          fontFamily: props.settings.headerFont,
         }}
       >
-        <h2>
+        <h2 style={{fontFamily: props.settings.headlineFont}}>
           Profile
         </h2>
         {props.dataPersonal.description && (
-          <p className="description">{props.dataPersonal.description}</p>
+          <p className="description" style={{fontFamily: props.settings.paragraphFont}}>{props.dataPersonal.description}</p>
         )}
       </header>
       <aside
         style={{
           backgroundColor: props.settings.accentColor,
-          fontFamily: props.settings.footerFont,
         }}
       >
-         <h1 className="name">
+         <h1 className="name" style={{fontFamily: props.settings.headlineFont}}>
           {props.dataPersonal.title && props.dataPersonal.title}&nbsp;<br />
           {props.dataPersonal.firstName && props.dataPersonal.firstName}&nbsp;<br />
           {props.dataPersonal.lastName && props.dataPersonal.lastName}
         </h1>
-        <div className="aside-container">
+        <div className="aside-container" style={{fontFamily: props.settings.paragraphFont}}>
           <div className="contact">
             {props.dataPersonal.eMail && (
               <>

@@ -37,7 +37,6 @@ const colorOptions = [
 
 const fontOptions = {
   areas: [
-    { displayName: "Header", name: "headerFont" },
     { displayName: "Headlines", name: "headlineFont" },
     { displayName: "Paragraphs", name: "paragraphFont" },
     { displayName: "Footer", name: "footerFont" },
@@ -46,7 +45,6 @@ const fontOptions = {
     "Arial",
     "Times New Roman",
     "Great Vibes",
-    "Josefin",
     "Roboto",
     "Oswald",
   ],

@@ -86,7 +86,6 @@ const defaultCustomiztion = {
   backgroundColor: "#eeeeee",
   footerColor: "#15961b",
   footerTextColor: "#ffffff",
-  headerFont: "Arial",
   headlineFont: "Arial",
   paragraphFont: "Arial",
   footerFont: "Arial",
