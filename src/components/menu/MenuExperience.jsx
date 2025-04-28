@@ -4,11 +4,20 @@ import { arrayMove } from "@dnd-kit/sortable"
 import InputElement from "./inputs/InputElement.jsx"
 import InputFormEntry from "./inputs/InputFormEntry.jsx"
 import InputCheckbox from "./inputs/InputCheckbox.jsx"
-import { useImmer } from 'use-immer'
+import { useImmer } from "use-immer"
 
 export default function MenuExperience({ items, setItems }) {
+  const initialValues = {
+    name: "",
+    position: "",
+    location: "",
+    description: "",
+    start: "",
+    end: "",
+    currentPlace: false,
+  }
   const [inputVisible, setInputVisible] = useState(false)
-  const [filledValues, setFilledValues] = useImmer({})
+  const [filledValues, setFilledValues] = useImmer(initialValues)
   const [currentlyEditing, setCurrentlyEditing] = useState(false)
 
   function handleDragEnd(event) {
@@ -50,7 +59,7 @@ export default function MenuExperience({ items, setItems }) {
 
       setItems(changedItems)
       setCurrentlyEditing(false)
-      setFilledValues({})
+      setFilledValues(initialValues)
     } else {
       const newItem = {
         id: crypto.randomUUID(),
@@ -70,7 +79,7 @@ export default function MenuExperience({ items, setItems }) {
   const handleEditItem = (id) => {
     const itemIndex = items.findIndex((item) => item.id === id)
 
-    setFilledValues(draft => {
+    setFilledValues((draft) => {
       draft.id = items[itemIndex].id
       draft.name = items[itemIndex].name
       draft.position = items[itemIndex].position
@@ -86,9 +95,7 @@ export default function MenuExperience({ items, setItems }) {
 
   // make inputs a controlled input
   const handleChange = (event, name) => {
-    console.log(event, name);
-    
-    setFilledValues(draft => {
+    setFilledValues((draft) => {
       draft[name] = event
     })
   }
