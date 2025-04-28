@@ -1,7 +1,10 @@
+@use "./fonts.css" as *;
+
 :root {
   --background-color: #ffffff;
   --bg-level1: #94c9ef;
   --bg-level2: #5185ab;
+  --bg-level3: #164a6f;
   --inputs: #ffffff;
   --submit-btn: #084d7e;
   --textcolor-dark: #1c1c1c;
@@ -25,7 +28,7 @@
 .misc-menu-wrapper,
 .menu {
   * {
-    font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+    font-family: "Inter", Avenir, Helvetica, Arial, sans-serif;
   }
 }
 
@@ -243,43 +246,70 @@ textarea {
 }
 
 .form-width-33 {
-  grid-column: span 2 ;
+  grid-column: span 2;
 }
 
 button {
   cursor: pointer;
+  transition: ease all 0.3s;
+  
+  &:hover {
+    font-weight: 700;
+  }
 }
 
 .sortable-item {
+  padding: 0.25rem;
   width: 100%;
   display: grid;
+  gap: 0.25rem;
   grid-template-columns: auto 1fr auto auto;
-  cursor: pointer;
+  cursor: grab;
   align-items: center;
   margin-bottom: 0.75rem;
+  box-sizing: border-box;
+  background-color: var(--bg-level3);
+  border-radius: 0.25rem;
 
   h1 {
     margin: 0;
     line-height: 1.75rem;
+    transition: all ease 0.5s;
 
     &::after {
       display: none;
     }
   }
-}
 
-.move-item,
-.edit-item,
-.remove-item {
-  width: 1rem;
-  height: 1rem;
-  background-repeat: no-repeat;
-  background-size: cover;
-  justify-self: flex-end;
-  border: none;
-  background-color: transparent;
-}
+  &:hover {
+    h1 {
+      padding-left: 0.5rem;
+    }
+    .move-item,
+    .edit-item:hover,
+    .remove-item:hover {
+      scale: 1.2;
+    }
+  }
+  .move-item,
+  .edit-item,
+  .remove-item {
+    width: 1rem;
+    height: 1rem;
+    background-repeat: no-repeat;
+    background-size: cover;
+    justify-self: flex-end;
+    border: none;
+    background-color: transparent;
+    transition: all ease 0.5s;
 
+  }
+
+  .edit-item,
+  .remove-item {
+    cursor: pointer;
+  }
+}
 .input-color label {
   display: grid;
   grid-template-columns: 1fr 4rem;
@@ -297,6 +327,7 @@ button {
 
 input[type="color"] {
   padding: 0;
+  cursor: pointer;
 }
 
 .input-select {
