@@ -93,7 +93,7 @@ export default function MiscMenu({
           inputText="Export for printing"
           onClick={printCV}
         />
-        <p className='notice'>If your have borders around the CV while printing, check your margin settings in the print-dialog</p>
+        <p>If your have borders around the CV while printing, check your "margin" settings in the print-dialog.</p>
       </div>
       <InputButton
           icon={arrowImg}
